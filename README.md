@@ -1,12 +1,3 @@
-DLL 之前
+##博客源码
 
-    app: 205
-    vendor: 334
-
-DLL 之后
-    app: 205
-    vendor: 93,
-
-externals 之后
-    app: 205
-    vendor: 194
+[在线地址](http://dzblog.cn/)
