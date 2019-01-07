@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Live2d</title>
+</head>
+
+<body>
+    <button type="button" id="btn">切换</button>
+    <canvas id="live2d" width="280" height="250"></canvas>
+</body>
+
+</html>
+<script src="/live2d/live2d.js"></script>
+<script>
+    //获取网址参数
+    function getUrl(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return r[2];
+        return null;
+    }
+
+    const modelId = getUrl('modelId') || 0,
+        texturesId = getUrl('texturesId') || 0
+    var arr = [
+        'ShizukuTalk/shizuku-48',
+        'ShizukuTalk/shizuku-pajama',
+        'KantaiCollection/murakumo'
+    ]
+    let index = 0
+    load(arr[index])
+    btn.onclick = function () {
+        index++
+        if (index >= arr.length) {
+            index = 0
+        }
+        load(arr[index])
+    }
+
+    function load(path) {
+        console.log(path)
+        loadlive2d("live2d", `./model/${path}/index.json`)
+    }
+    // loadlive2d("live2d", `http://localhost:3000/api/live2d/model/${modelId}/textures/${texturesId}`)
+    // model/:modelId/textures/:texturesId
+</script>

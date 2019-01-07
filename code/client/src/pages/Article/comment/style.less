@@ -1,0 +1,100 @@
+@bg-reply-color: rgba(186, 164, 119, 0.66);
+.blog-comment {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 60px;
+    .btn-load {
+        margin: 20px auto;
+        color: @vice-color;
+        font-size: 16px;
+        svg {
+            display: none;
+        }
+        span{
+            &:after {
+                content: '点击加载更多';
+            }
+        }
+        &.loading {
+            pointer-events: none;
+            svg {
+                display: block;
+                animation: rotate360 2s linear infinite;
+                margin-right: 5px;
+            }
+            span::after {
+                content: '加载中...';
+            }
+        }
+        &.none {
+            pointer-events: none;
+            span::after {
+                content: '没有更多留言了';
+            }
+        }
+    }
+    .total {
+        line-height: 40px;
+        span {
+            vertical-align: middle;
+            color: @vice-color;
+        }
+        .num {
+            color: @theme-color;
+        }
+    }
+    .comment-box {
+        border-bottom: 1px dashed @vice-color;
+    }
+    .comment {
+        width: 100%;
+        border-top: 1px dashed @vice-color;
+        padding: 0.1rem 0;
+        @avatarW: 30px;
+        .c-avatar, .r-avatar {
+            width: @avatarW;
+            height: @avatarW;
+            border-radius: 50%;
+        }
+        .c-content, .r-content {
+            padding-left: 10px;
+            width: calc(~'100% - @{avatarW}');
+            font-size: 12px;
+            line-height: 16px;
+            color: @vice-color;
+        }
+        .c-name, .r-name {
+            color: @theme-color;
+            font-size: 14px;
+            &:hover {
+                cursor: pointer;
+                text-decoration:underline
+            }
+        }
+        .c-time, .r-time {
+            color: #bab2b2;
+            margin-left: 6px;
+        }
+        .c-reply, .r-reply {
+            margin-left: 6px;
+            &:hover {
+                cursor: pointer;
+                text-decoration:underline
+            }
+        }
+        .reply-list {
+            width: calc(~'100% - @{avatarW}');
+            margin-left: @avatarW;
+        }
+        .r-comment {
+            margin: 20px 0;
+        }
+    }
+    .router-view-sm & {
+        width: 90%;
+        padding-bottom: 20px;
+    }
+    .router-view-lg & {
+        width: 100%;
+    }
+}

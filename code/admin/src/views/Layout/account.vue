@@ -1,0 +1,53 @@
+<template>
+    <div class="sign_out">
+        <el-dropdown>
+          <div class="el-dropdown-link">
+            <img src="../../assets/images/avatar.gif" alt="">
+          </div>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>{{userName}}</el-dropdown-item>
+            <el-dropdown-item @click.native="removeCookie">退出</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+    </div>
+</template>
+<script>
+    import { removeToken } from '@/utils/token'
+    import { mapGetters } from 'vuex'
+    export default {
+        methods: {
+            removeCookie () {
+                removeToken()
+                this.$router.push('/login')
+            }
+        },
+        computed: {
+            ...mapGetters(['userName'])
+        }
+    }
+</script>
+<style lang="less" scoped>
+    .sign_out {
+        float: right;
+        margin-right: 20px;
+        line-height: 40px;
+        >*{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+        .sign_out_icon {
+            color: #5a5e66;
+            font-size: 20px;
+            cursor: pointer;
+            &:hover {
+                color: #aaa;
+            }
+        }
+    }
+</style>

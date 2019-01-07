@@ -1,0 +1,60 @@
+@keyframes articleFadeUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 200px, 0)
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+}
+// .article-container {
+//     // opacity: 0;
+//     transform: translate3d(0, 200px, 0)
+// }
+
+#article {
+    max-width: 1000px;
+    background-image: url('../../assets/images/note-bg.jpg');
+    padding: 10px;
+    // opacity: 0;
+    // transform: translate3d(0, 200px, 0);
+    // &.article-fadeUp {
+    //     animation: articleFadeUp .5s linear;
+    //     animation-fill-mode: forwards;
+    // }
+    .article-nums {
+        line-height: 40px;
+        font-size: 14px;
+        color: #555;
+    }
+    .article-content {
+        padding: 30px 60px;
+        border: 1px dashed #c9c9c7;
+        position: relative;
+        h1 {
+            text-align: center;
+        }
+        .github {
+            position: absolute;
+            right: 0;top: 0;
+        }
+    }
+    .router-view-lg & {
+        width: 96%;
+        margin: 0px auto;
+    }
+    .router-view-sm &{
+        width: 3.6rem;
+        margin: 20px auto;
+        .article-content {
+            padding: 30px 10px;
+        }
+    }
+}
+.article-back {
+    width: 96%;
+    margin: 0px auto;
+    margin-top: 80px;
+    max-width: 1000px;
+}
