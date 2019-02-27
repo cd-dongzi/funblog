@@ -64,7 +64,7 @@
                     this.$toast(msg)
                     return
                 }
-                if (this.info.name === 'DongZi-Author') {
+                if (this.info.name === 'DongZi') {
                     this.info.isAuthor = true
                     this.info.avatar = 8
                 }else {

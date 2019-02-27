@@ -137,7 +137,7 @@
         this.info.title = this.blogInfo.title
 
         // 是作者本人
-        if (this.info.name === 'DongZi-Author') {
+        if (this.info.name === 'DongZi') {
           this.info.isAuthor = true
           this.info.avatar = 0
         } else {

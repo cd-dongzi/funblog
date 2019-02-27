@@ -67,7 +67,7 @@
                     return
                 }
                 this.info.msg = filterHTMLTag(this.info.msg)// 是作者本人
-                if (this.info.name === 'DongZi-Author') {
+                if (this.info.name === 'DongZi') {
                     this.info.name = '作者'
                     this.info.isAuthor = true
                     this.info.avatar = 0
