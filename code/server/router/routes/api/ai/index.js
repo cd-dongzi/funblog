@@ -10,8 +10,8 @@ function getResult (text) {
     return new Promise(r => {
         const url = 'http://openapi.tuling123.com/openapi/api/v2'
         const userInfo = {
-            "apiKey": "753fd28d57b94025af42f07ac36cee17",
-            "userId": "chendong"
+            "apiKey": "***",
+            "userId": "**"
         }
         var opts = {
             method: 'POST',
