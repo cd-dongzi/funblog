@@ -76,7 +76,7 @@
     "clipboard": "^2.0.1",
     "crypto": "^1.0.1",
     "element-ui": "^2.4.3",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.1.2",
     "ip": "^1.1.5",
     "js-md5": "^0.7.3",
     "jsonwebtoken": "^8.3.0",
