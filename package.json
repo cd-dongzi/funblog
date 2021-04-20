@@ -69,7 +69,7 @@
     "@alicloud/sms-sdk": "^1.1.2",
     "ali-oss": "^6.0.1",
     "archiver": "^2.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-resolver": "^1.1.0",
     "babel-polyfill": "^6.26.0",
     "busboy": "^0.2.14",
