@@ -1,0 +1,119 @@
+.screen() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+@duration: 0.5s;
+
+.layout-small {
+  // forward
+  .router-forward-enter {
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+
+  .router-forward-enter-active {
+    .screen();
+
+    transform: translateX(0%);
+    opacity: 1;
+    transition: transform @duration, opacity @duration;
+  }
+
+  .router-forward-exit-active {
+    .screen();
+
+    transform: translateX(-100%);
+    opacity: 0.5;
+    transition: transform @duration, opacity @duration;
+  }
+
+  // back
+  .router-back-enter {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+
+  .router-back-enter-active {
+    .screen();
+
+    transform: translateX(0%);
+    opacity: 1;
+    transition: transform @duration, opacity @duration;
+  }
+
+  .router-back-exit-active {
+    .screen();
+
+    transform: translateX(100%);
+    transition: transform @duration, opacity @duration;
+    opacity: 0.5;
+  }
+
+  // replace
+  .router-fade-enter {
+    opacity: 0.5;
+  }
+
+  .router-fade-enter-active {
+    .screen();
+
+    opacity: 1;
+    transition: opacity @duration;
+  }
+
+  .router-fade-exit {
+    opacity: 1;
+  }
+
+  .router-fade-exit-active {
+    .screen();
+
+    transition: opacity @duration;
+    opacity: 0;
+  }
+}
+
+.layout-large {
+  @min-height: calc(~'100vh - var(--large_header_height)');
+  @offset-y: 200px;
+
+  // forward
+  .router-forward-enter,
+  .router-back-enter,
+  .router-fade-enter {
+    opacity: 0;
+    // transform: translateY(@offset-y);
+  }
+
+  .router-forward-enter,
+  .router-fade-enter {
+    transform: translateY(@offset-y);
+  }
+
+  .router-forward-enter-active,
+  .router-back-enter-active,
+  .router-fade-enter-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    min-height: @min-height;
+    transition: opacity @duration, transform @duration;
+    //
+    position: absolute;
+    left: 0;
+    top: var(--large_header_height);
+    width: 100%;
+    height: 100%;
+  }
+
+  .router-forward-exit-active,
+  .router-back-exit-active,
+  .router-fade-exit-active {
+    // display: none;
+    opacity: 0;
+    transition: opacity @duration, transform @duration;
+  }
+}

@@ -1,3 +1,3 @@
 ## 博客源码
 
-[在线地址](http://dzblog.cn/)
+[在线地址](https://dzblog.cn/)

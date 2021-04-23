@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/client/*"],
+      "@server/*": ["src/server/*"],
+      "@root/*": ["./*"]
+    },
+    "baseUrl": "../../",
+    "rootDir": "../../"
+  },
+  "exclude": [
+    "src/client/libs"
+  ]
+}

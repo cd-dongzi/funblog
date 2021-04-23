@@ -1,0 +1,46 @@
+.panel {
+  &-title {
+    border-bottom: 1px solid #d8e0ea;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.5);
+
+    &__text {
+      display: inline-block;
+      padding-bottom: 8px;
+      color: var(--text-color);
+      font-size: 14px;
+      transition: 0.25s;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 50%;
+        height: 3px;
+        background: linear-gradient(#58b7ff 30%, #20a0ff 70%) var(--primary);
+        border-radius: 3px;
+        box-shadow: 0 3px 4px rgba(32, 160, 255, 0.5);
+        transition: width 0.25s;
+      }
+    }
+  }
+
+  &-content {
+    padding-top: 8px;
+  }
+
+  &-container {
+    &:hover {
+      .panel-title__text {
+        color: var(--primary);
+
+        .layout-large & {
+          &::after {
+            width: calc(~'100% + 10px');
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.mb-underline__item {
+  padding: 0 15px;
+  color: var(--text_color);
+  transition: color 0.3s;
+  line-height: 56px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &-icon {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+  &.active {
+    color: var(--primary);
+  }
+
+  &:hover {
+    &:not(.active) {
+      color: var(--primary);
+    }
+  }
+}

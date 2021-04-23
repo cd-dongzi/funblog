@@ -1,0 +1,71 @@
+@menu-wrap-color: #324157;
+@sub-menu-wrap-color: #1f2d3d;
+@selected-color: @primary-color;
+@hover-bg-color: #48576a;
+@default-text-color: rgba(255, 255, 255, 0.65);
+
+#layout-sidebar {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  overflow-y: auto;
+  background-color: @menu-wrap-color;
+  transition: width 0.28s ease-out;
+
+  .ant-menu {
+    background-color: @menu-wrap-color;
+  }
+
+  .ant-menu-sub {
+    background-color: @sub-menu-wrap-color;
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 56px;
+    line-height: 56px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+
+      & + span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    &:hover {
+      background-color: @hover-bg-color;
+    }
+  }
+
+  .ant-menu-inline-collapsed .ant-menu-submenu .ant-menu-submenu-title .icon + span {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  .ant-menu-submenu-title {
+    color: @default-text-color;
+  }
+
+  .ant-menu-item-selected {
+    background-color: transparent;
+
+    .ant-menu-item-icon {
+      color: @selected-color;
+
+      & + span {
+        color: @selected-color;
+      }
+    }
+  }
+}

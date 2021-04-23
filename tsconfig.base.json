@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true, // 开启所有严格的类型检查
+    "alwaysStrict": true, // 在代码中注入'use strict'
+    "noImplicitAny": true, // 不允许隐式的any类型
+    "strictNullChecks": true, // 不允许把null、undefined赋值给其他类型的变量
+    "strictFunctionTypes": true, // 不允许函数参数双向协变
+    "noEmit": true, // 不输出文件,即编译后不会生成任何js文件
+    "noEmitOnError": true, // 发送错误时不输出任何文件
+    "removeComments": true, // 删除注释
+    "noImplicitThis": true, // 不允许this有隐式的any类型
+    "experimentalDecorators": true, // 开始装饰器
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "react"
+  }
+}

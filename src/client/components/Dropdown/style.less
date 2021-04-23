@@ -1,0 +1,38 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &-box {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    background-color: var(--white);
+    border-radius: 6px;
+    transform: translateX(-50%) scaleY(0);
+    visibility: hidden;
+    opacity: 0;
+    min-width: 60px;
+    padding: 10px;
+    transform-origin: center top;
+    transition: 0.25s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: transparent;
+      border: 7px solid transparent;
+      border-bottom-color: var(--white);
+    }
+  }
+
+  &:hover {
+    .dropdown-box {
+      opacity: 1;
+      transform: translateX(-50%) scaleY(1);
+      visibility: visible;
+    }
+  }
+}

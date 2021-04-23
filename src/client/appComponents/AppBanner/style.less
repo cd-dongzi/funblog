@@ -1,0 +1,34 @@
+.app-banner {
+  position: relative;
+  width: 100%;
+  transition: 0.5s;
+  overflow: hidden;
+
+  .bubble-cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .screen-xl &,
+  .screen-xxl & {
+    height: 350px;
+  }
+
+  .screen-lg & {
+    height: 320px;
+  }
+
+  .screen-md &,
+  .screen-xs &,
+  .screen-sm & {
+    height: calc(~'350px + var(--large_header_height)');
+    padding-top: var(--large_header_height);
+
+    &.small {
+      height: calc(~'220px + var(--large_header_height)');
+    }
+  }
+}

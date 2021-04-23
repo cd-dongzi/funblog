@@ -1,0 +1,30 @@
+.mobile-navigation {
+  li {
+    a {
+      display: block;
+      color: var(--text-color);
+      text-shadow: 0 1px var(--white);
+      padding: 0 30px 0 15px;
+      line-height: 40px;
+      border-radius: 20px;
+      position: relative;
+      transition: 0.25s;
+      font-size: 14px;
+
+      span {
+        margin-left: 4px;
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
+
+      &.active {
+        background: linear-gradient(90deg, var(--primary), var(--analogous_light_1));
+        box-shadow: 0 10px 15px var(--primary_opacity_4);
+        color: #fff;
+        text-shadow: none;
+      }
+    }
+  }
+}

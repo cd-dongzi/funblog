@@ -1,0 +1,143 @@
+@import './reset.less';
+@import './function.less';
+@import './md/index.less';
+@import '../components/BannerTag/style.less';
+@import './router.less';
+@import './adaptation.less';
+@import './animate.less';
+@import './variables/index';
+
+* {
+  touch-action: manipulation;
+}
+
+@font-face {
+  font-family: 'Cusotm';
+  src: url('../assets/fonts/Play-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Cusotm';
+  src: url('../assets/fonts/Play-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+html {
+  font-family:
+    'Cusotm',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    segoe ui,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    apple color emoji,
+    segoe ui emoji,
+    segoe ui symbol;
+}
+
+body {
+  background-color: var(--gray_9);
+  color: var(--gray_4);
+
+  &.disabled-scroll {
+    overflow: hidden;
+  }
+}
+
+a {
+  color: var(--a_color);
+}
+
+svg.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+span.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 1em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  opacity: 0.8;
+  background-color: var(--text_color);
+  border-radius: 2px;
+  transition: all 0.5s;
+}
+
+::selection {
+  background: var(--primary_opacity_7);
+  color: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.page-view {
+  // background-color: var(--gray_9);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > div:first-child {
+    flex: 1;
+    padding-bottom: 50px;
+    position: relative;
+  }
+
+  &-loading {
+    top: var(--large_header_height);
+    background-color: var(--gray_9);
+
+    // 进行动画的时候，不需要top, 不然会露出一角
+    .router-forward-enter-active & {
+      top: 0;
+    }
+  }
+
+  .layout-large & {
+    padding-top: 20px;
+    min-height: calc(~'100vh - var(--large_header_height)');
+
+    > div:first-child {
+      width: var(--large_width);
+      margin: 0 auto;
+    }
+  }
+
+  .layout-small & {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
+.page-view-p {
+  padding-bottom: 30px;
+}
+
+.page-pagination {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+}

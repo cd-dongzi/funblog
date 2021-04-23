@@ -1,0 +1,54 @@
+@mask-duration: 0.5s;
+
+.opa() {
+  &-appear {
+    opacity: 0;
+  }
+
+  &-appear-active {
+    opacity: 1;
+    transition: opacity @mask-duration;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity @mask-duration;
+  }
+}
+
+.fixed() {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--zIndex_2);
+}
+
+.dialog {
+  // &-container {
+  //   .fixed();
+
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  &-mask {
+    .fixed();
+  }
+
+  &-content {
+    .fixed();
+
+    overflow: auto;
+  }
+
+  &-mask-animate {
+    .opa();
+  }
+
+  &-content-animate {
+    .opa();
+  }
+}

@@ -1,0 +1,118 @@
+.message-list-item {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--gray_8);
+      border-radius: 6px;
+      transition: border-color 0.25s;
+
+      .bg-cover {
+        border: 2px solid var(--gray_8);
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+      }
+    }
+
+    .meta {
+      padding: 0 6px;
+      line-height: 21px;
+      border-bottom: 1px solid var(--gray_8);
+      transition: border-color 0.25s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .name-wrapper {
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .name {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--text_color);
+        transition: color 0.25s;
+      }
+
+      .tip {
+        font-size: 12px;
+        color: var(--gray_4);
+        margin: 0 6px;
+      }
+
+      a[class="name"] {
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+
+    .time {
+      font-size: 12px;
+      transition: transform 0.25s;
+    }
+
+    .reply {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border: 1px solid var(--gray_8);
+      background: var(--white);
+      color: var(--gray_4);
+      box-shadow: 0 3px 5px var(--primary_opacity_1);
+      padding: 0 10px;
+      border-radius: 10px;
+      line-height: 20px;
+      height: 20px;
+      transition: 0.25s;
+      transform: translate(38px, 50%);
+      opacity: 0;
+      pointer-events: none;
+
+      .icon {
+        font-size: 16px;
+      }
+    }
+
+    .intro {
+      padding: 3px 6px 0;
+      font-size: 14px;
+      margin-bottom: 10px;
+      margin-top: 4px;
+    }
+
+    &:hover {
+      .avatar,
+      .meta {
+        border-color: var(--primary);
+      }
+
+      .time {
+        transform: translateX(-38px);
+      }
+
+      .reply {
+        color: var(--primary);
+        border-color: var(--primary);
+        box-shadow: 0 5px 8px var(--primary_opacity_3);
+        transform: translate(0, 50%);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .editor-box {
+    margin-left: 48px;
+  }
+
+  .children {
+    margin-left: 48px;
+  }
+}

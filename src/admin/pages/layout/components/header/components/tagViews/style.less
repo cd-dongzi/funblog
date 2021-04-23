@@ -1,0 +1,39 @@
+.tag-views {
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: auto;
+
+  .ant-tag {
+    color: #909399;
+    background: hsla(220, 4%, 58%, 0.1);
+    border: 1px solid hsla(220, 4%, 58%, 0.2);
+    padding-right: 2px;
+    cursor: pointer;
+
+    .ant-tag-close-icon {
+      padding: 2px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #909399;
+        color: #fff;
+      }
+    }
+
+    &.active,
+    &:hover {
+      color: @primary-color;
+      background: rgba(64, 158, 255, 0.1);
+      border: 1px solid rgba(64, 158, 255, 0.2);
+
+      .ant-tag-close-icon {
+        color: @primary-color;
+
+        &:hover {
+          background-color: @primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

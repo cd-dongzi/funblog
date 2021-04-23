@@ -1,0 +1,50 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+
+  ul {
+    position: relative;
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    background: #e0e4ec;
+    border-radius: 100px;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.5), 0 5px 10px rgba(31, 45, 61, 0.15) inset;
+  }
+
+  &-item {
+    display: inline-block;
+    cursor: pointer;
+    color: #99a9bf;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.75);
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.25s;
+    position: relative;
+    z-index: 2;
+
+    &.next,
+    &.dot-next {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-anchor {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(#fff, #f7f8fa);
+    transition: transform 0.3s linear;
+    transform: translateX(var(--menu_transform_left));
+    box-shadow: 0 6px 6px rgba(31, 45, 61, 0.05), 0 10px 10px rgba(31, 45, 61, 0.15), 0 -1px 2px rgba(255, 255, 255, 0.5) inset;
+    z-index: 1;
+  }
+}

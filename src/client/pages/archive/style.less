@@ -1,0 +1,21 @@
+.archive {
+  &-main {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  &-pc-sidebar {
+    width: calc(~'var(--large_left_sidebar_width) - 100px');
+  }
+
+  &-pc-content {
+    width: calc(~'100% - (var(--large_left_sidebar_width) - 100px)');
+    padding: 0 20px;
+  }
+
+  &-mobile-content {
+    width: 100%;
+    padding: 0 var(--small_padding);
+  }
+}

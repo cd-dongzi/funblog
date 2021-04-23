@@ -1,0 +1,134 @@
+@width: 150px;
+@height: 134px;
+
+.card-strip {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 15px;
+
+  .cover {
+    width: @width;
+    height: @height;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 13px 15px var(--gray_opacity_2);
+    transition: box-shadow 0.25s, transform 0.25s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(13px);
+      box-shadow: 0 3px 5px var(--gray_opacity_3);
+    }
+  }
+
+  .content {
+    width: calc(~'100% - @{width}');
+    height: @height;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+    .meta {
+      width: 100%;
+    }
+
+    h2 {
+      width: 100%;
+    }
+
+    .title {
+      width: 100%;
+      font-size: 18px;
+      color: var(--gray_1);
+      transition: color 0.5s;
+      cursor: pointer;
+      display: block;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+
+    .time {
+      font-size: 12px;
+      color: var(--gray_4);
+    }
+
+    .tags {
+      margin: 5px 0;
+    }
+
+    .tag {
+      margin-right: 5px;
+    }
+
+    .foot {
+      width: 100%;
+    }
+
+    .controls {
+      position: relative;
+      height: 20px;
+    }
+
+    .desc {
+      width: 100%;
+      color: var(--gray_4);
+      font-size: 16px;
+    }
+  }
+
+  .view-small & {
+    @width: 80px;
+    @height: 72px;
+
+    .cover {
+      width: @width;
+      height: @height;
+      border-radius: 4px;
+      box-shadow: 0 8px 10px var(--gray_opacity_2);
+
+      &:hover {
+        transform: translateY(8px);
+        box-shadow: 0 3px 5px var(--gray_opacity_3);
+      }
+    }
+
+    .content {
+      width: calc(~'100% - @{width}');
+      height: @height;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+
+      .title {
+        font-size: 15px;
+      }
+
+      .time {
+        font-size: 10px;
+      }
+
+      .tags {
+        margin: 3px 0;
+      }
+
+      .tag {
+        margin-right: 3px;
+      }
+
+      .foot {
+        display: none;
+      }
+
+      .controls {
+        position: relative;
+        height: 20px;
+      }
+
+      .desc {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@height: 40px;
+
+.dot() {
+  content: '';
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+  transform-origin: bottom;
+  transform: scaleY(0.75);
+}
+.arrow() {
+  content: '';
+  display: inline-block;
+  border-style: solid;
+  border-width: 20px 8px;
+  vertical-align: bottom;
+}
+.create(@start-color, @center-color, @end-color, @left-color, @right-color, @shadow) {
+  .banner-tag__content {
+    height: @height;
+    display: inline-block;
+    font-size: 16px;
+
+    .banner-tag__wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &.banner-tag__left {
+    filter: drop-shadow(5px 6px 5px @shadow);
+
+    .banner-tag__content {
+      padding-left: 10px;
+      background: linear-gradient(90deg, @start-color, @center-color 6px, @end-color);
+      border-bottom-left-radius: 5px;
+    }
+
+    &::before {
+      left: 0;
+      top: -10px;
+      border-color: transparent @left-color @left-color transparent;
+      .dot();
+    }
+
+    &::after {
+      border-color: @right-color transparent transparent @right-color;
+      .arrow();
+    }
+  }
+
+  &.banner-tag__right {
+    filter: drop-shadow(-5px 6px 5px @shadow);
+
+    .banner-tag__content {
+      padding-right: 10px;
+      background: linear-gradient(90deg, @end-color, @center-color calc(100% - 6px), @start-color);
+      border-bottom-right-radius: 5px;
+    }
+
+    &::before {
+      border-color: transparent @right-color @right-color transparent;
+      .arrow();
+    }
+
+    &::after {
+      right: 0;
+      top: -10px;
+      border-color: transparent transparent @left-color @left-color;
+      .dot();
+    }
+  }
+}
+
+.banner-tag {
+  position: relative;
+  display: inline-block;
+  color: var(--white);
+  font-size: 0;
+
+  &.primary {
+    @start-color: #76d5ff;
+    @center-color: #20baff;
+    @end-color: #0394ff;
+    @left-color: #008bc9;
+    @right-color: #0394ff;
+    @shadow: rgba(32, 160, 255, 0.3);
+    .create(@start-color, @center-color, @end-color, @left-color, @right-color, @shadow);
+  }
+
+  &.red {
+    @start-color: #ffb350;
+    @center-color: #ff7849;
+    @end-color: #ff4949;
+    @left-color: #ca1f1e;
+    @right-color: #ff4949;
+    @shadow: rgba(255, 73, 73, 0.3);
+    .create(@start-color, @center-color, @end-color, @left-color, @right-color, @shadow);
+  }
+}
