@@ -40,12 +40,12 @@ export default {
   },
   mongodb: {
     dev: {
-      db: 'blog',
+      db: 'blog-test',
       username: 'root',
       password: '123456'
     },
     prod: {
-      db: 'blog',
+      db: 'blog-test',
       username: 'root',
       password: '123456'
     }

@@ -3,9 +3,15 @@ import fs from 'fs'
 import rootConfig from '@root/src/shared/config'
 import paths from '@root/build/paths'
 
-const httpsOptions = {
-  key: fs.readFileSync(path.resolve(paths.serverPath, `ssl/dev/server.key`)),
-  cert: fs.readFileSync(path.resolve(paths.serverPath, `ssl/dev/server.crt`))
+let httpsOptions = {} as {
+  key: Buffer
+  cert: Buffer
+}
+if (rootConfig.isHttps) {
+  httpsOptions = {
+    key: fs.readFileSync(path.resolve(paths.serverPath, `ssl/server.key`)),
+    cert: fs.readFileSync(path.resolve(paths.serverPath, `ssl/server.crt`))
+  }
 }
 export default {
   isProd: rootConfig.isProd,
