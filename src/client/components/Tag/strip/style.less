@@ -1,0 +1,24 @@
+.tag-strip {
+  font-size: 10px;
+  padding: 0 10px;
+  line-height: 20px;
+  position: relative;
+  display: inline-block;
+  transition: padding 0.3s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: 0.15;
+    border-radius: 20px;
+  }
+
+  &:hover {
+    padding: 0 20px;
+  }
+}

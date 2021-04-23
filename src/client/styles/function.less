@@ -1,0 +1,106 @@
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* 浮动 */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.cf {
+  zoom: 1;
+}
+
+.cf::after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.wes {
+  /* 多出部分用省略号表示 , 用于一行 */
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wes-2 {
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+
+/* flex布局 */
+.df-sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.df-sa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 垂直居中 */
+.df-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ts-c {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.df-col-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.df-col-sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.df-col-sa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.df-fixed {
+  flex-shrink: 0;
+}
+
+.btn-clear,
+.input-clear {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.btn-clear {
+  cursor: pointer;
+}

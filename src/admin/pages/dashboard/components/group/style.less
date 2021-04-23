@@ -1,0 +1,53 @@
+.dashboard-group {
+  margin: 20px 0;
+
+  &-item {
+    width: 100%;
+    height: 108px;
+    padding: 0 30px;
+
+    &__icon {
+      font-size: 50px;
+    }
+
+    &__meta {
+      text-align: right;
+    }
+
+    &__title {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 20px;
+    }
+
+    &__total {
+      font-size: 30px;
+      color: #666;
+    }
+  }
+
+  .ant-col {
+    &:nth-child(1) {
+      .dashboard-group-item__icon {
+        color: #40c9c6;
+      }
+    }
+
+    &:nth-child(2) {
+      .dashboard-group-item__icon {
+        color: #36a3f7;
+      }
+    }
+
+    &:nth-child(3) {
+      .dashboard-group-item__icon {
+        color: #f4516c;
+      }
+    }
+
+    &:nth-child(4) {
+      .dashboard-group-item__icon {
+        color: #837adc;
+      }
+    }
+  }
+}

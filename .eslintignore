@@ -1,0 +1,5 @@
+/dist/
+/public/
+/node_modles/
+yarn.lock
+.DS_Store

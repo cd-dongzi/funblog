@@ -1,0 +1,61 @@
+.app-banner-m {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  color: #fff;
+
+  &__cover {
+    width: 152px;
+    height: 152px;
+    border-radius: 6px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 28px;
+    text-shadow: 0 4px 5px var(--gray_opacity_5);
+    line-height: 40px;
+  }
+
+  &__desc {
+    text-shadow: 0 2px 3px var(--gray_opacity_5);
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+
+  &__tags {
+    text-shadow: 0 2px 3px var(--gray_opacity_5);
+    opacity: 0.6;
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  &__tag {
+    margin: 0 8px;
+    padding: 3px 0;
+    position: relative;
+    color: var(--white);
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: var(--white_opacity_3);
+      width: 0;
+      height: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

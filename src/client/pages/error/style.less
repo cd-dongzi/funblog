@@ -1,0 +1,53 @@
+.error {
+  &-box {
+    width: 440px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &-logo {
+    width: 100%;
+    display: block;
+  }
+
+  &-code {
+    position: absolute;
+    color: var(--gray_2);
+    font-size: 24px;
+    left: 38px;
+    top: 70px;
+  }
+
+  &-message {
+    padding: 3px 0 10px;
+    font-size: 16px;
+    color: var(--gray_2);
+  }
+
+  &-btn {
+    min-width: 120px;
+    text-align: center;
+    line-height: 40px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 4px;
+    color: var(--white);
+    font-size: 16px;
+    background-color: var(--red);
+    margin: 20px auto;
+  }
+
+  &-small {
+    .error-box {
+      width: 350px;
+    }
+
+    .error-code {
+      left: 26px;
+      top: 54px;
+    }
+  }
+}

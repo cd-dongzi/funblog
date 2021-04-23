@@ -1,0 +1,32 @@
+.home {
+  &-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @pc-sidebar-width: calc(~'var(--large_left_sidebar_width) - 50px');
+
+  &-pc-sidebar {
+    width: @pc-sidebar-width;
+  }
+
+  &-content {
+    .layout-large & {
+      width: calc(~'100% - @{pc-sidebar-width}');
+      padding-top: 30px;
+    }
+
+    .layout-small & {
+      width: 100%;
+      padding: 0 var(--small_padding);
+      padding-top: 10px;
+    }
+  }
+
+  &-pagination {
+    margin: 0 auto;
+    margin-top: 30px;
+    transform: translateY(50%);
+  }
+}

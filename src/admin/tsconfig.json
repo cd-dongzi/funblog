@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/admin/*"],
+      "@server/*": ["src/server/*"],
+      "@root/*": ["./*"]
+    },
+    "baseUrl": "../../",
+    "rootDir": "../../"
+  }
+}

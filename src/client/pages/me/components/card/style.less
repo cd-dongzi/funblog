@@ -1,0 +1,74 @@
+.me-card {
+  margin-bottom: 30px;
+
+  .meta {
+    position: relative;
+    padding: 0 40px;
+
+    .title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+
+      &::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -14px;
+        left: -5px;
+        background: linear-gradient(90deg, var(--analogous), var(--primary));
+        box-shadow: 0 0 6px var(--primary);
+        z-index: 1;
+      }
+
+      &::after {
+        box-sizing: border-box;
+        content: '';
+        right: -20px;
+        min-width: 100px;
+        height: 3px;
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        z-index: 2;
+        background: linear-gradient(90deg, var(--primary), rgba(203, 208, 218, 0.2) 80%, rgba(203, 208, 218, 0)) no-repeat 0 ~'1px/100%' 1px;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      border-top: 1px solid var(--gray_9);
+      position: absolute;
+      bottom: -13px;
+      left: 0;
+    }
+  }
+
+  .layout-large & {
+    .meta {
+      padding: 0 40px;
+    }
+
+    .main {
+      padding: 0 40px;
+      padding-top: 30px;
+    }
+  }
+
+  .layout-small & {
+    .meta {
+      padding: 0 8px;
+    }
+
+    .main {
+      padding: 0 8px;
+      padding-top: 18px;
+    }
+  }
+}

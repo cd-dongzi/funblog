@@ -1,0 +1,11 @@
+.sidebar {
+  &-wrapper {
+    max-height: calc(~'100% - var(--large_header_height)');
+
+    &.fixed {
+      position: fixed;
+      overflow-y: auto;
+      top: var(--large_header_height);
+    }
+  }
+}

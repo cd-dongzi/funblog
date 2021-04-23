@@ -1,0 +1,70 @@
+.me-personal {
+  .snippet {
+    font-size: 14px;
+    line-height: 1.5;
+
+    &::first-letter {
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 4px;
+    }
+    // min-height: 42px;
+
+    // &::first-letter {
+    //   float: left;
+    //   font-size: 28px;
+    //   margin-right: 7px;
+    //   font-weight: 500;
+    //   text-transform: uppercase;
+    //   font-style: normal;
+    // }
+  }
+
+  .list {
+    margin-top: 14px;
+
+    li {
+      border-bottom: 1px solid var(--gray_8);
+
+      .me-personal-val,
+      a {
+        color: var(--gray_4);
+        cursor: pointer;
+        transition: color 0.25s;
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      a {
+        margin-left: 10px;
+        font-size: 12px;
+      }
+    }
+
+    .layout-large & {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+
+      li {
+        padding: 12px 10px;
+
+        &:nth-child(4n + 1),
+        &:nth-child(4n + 2) {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    .layout-small & {
+      li {
+        padding: 10px 8px;
+
+        &:nth-child(odd) {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}

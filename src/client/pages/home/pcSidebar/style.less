@@ -1,0 +1,31 @@
+.home-pc-sidebar {
+  .menus {
+    &-head {
+      font-size: 12px;
+      line-height: 30px;
+      color: var(--gray_4);
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        display: block;
+        background-color: var(--gray_opacity_1);
+      }
+    }
+  }
+
+  .core {
+    .menu-button__menus {
+      margin-top: 30px;
+    }
+  }
+
+  .container {
+    padding: 0 20px;
+
+    &.fixed {
+      position: fixed;
+    }
+  }
+}

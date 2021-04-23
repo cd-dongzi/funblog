@@ -1,0 +1,45 @@
+.notification-normal {
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #fff;
+  min-width: 150px;
+  max-width: 400px;
+  margin-bottom: 15px;
+  position: relative;
+
+  &__tip {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -10px;
+    top: -7px;
+    box-shadow: 0 0 0 2px #fff;
+    border-radius: 50%;
+    transition: 0.35s 0.35s;
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  &.error {
+    background: linear-gradient(90deg, #ff4949, #ff7849);
+    box-shadow: 0 5px 8px rgba(255, 73, 73, 0.5);
+
+    .notification-normal__tip {
+      background: linear-gradient(0deg, #ff4949, #ff7849);
+    }
+  }
+
+  &.info {
+    background: linear-gradient(90deg, #20a0ff, #20b8ff);
+    box-shadow: 0 3px 5px rgba(32, 160, 255, 0.5);
+
+    .notification-normal__tip {
+      background: linear-gradient(0deg, #20a0ff, #20b8ff);
+    }
+  }
+}

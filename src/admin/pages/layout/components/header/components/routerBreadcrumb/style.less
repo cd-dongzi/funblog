@@ -1,0 +1,30 @@
+@color: #48576a;
+@active-color: #97a8be;
+
+.router-breadcrumb {
+  .ant-breadcrumb {
+    color: @color;
+
+    a {
+      color: @color;
+    }
+
+    > span {
+      &:last-child {
+        color: @active-color;
+
+        a {
+          color: @active-color;
+        }
+      }
+
+      &:not(:last-child) {
+        a {
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+  }
+}

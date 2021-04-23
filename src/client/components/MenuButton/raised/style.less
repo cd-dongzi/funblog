@@ -1,0 +1,27 @@
+.mb-raised__item {
+  padding: 0 15px;
+  color: var(--text_color);
+  transition: color 0.3s;
+  cursor: pointer;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+  border-radius: 19px;
+
+  &-icon {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  &.active {
+    color: var(--white);
+    background-color: var(--primary);
+    box-shadow: 0 8px 10px var(--primary_opacity_3);
+  }
+
+  &:hover {
+    &:not(.active) {
+      color: var(--primary);
+    }
+  }
+}

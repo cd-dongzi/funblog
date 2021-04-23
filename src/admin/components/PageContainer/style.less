@@ -1,0 +1,37 @@
+@margin: 20px;
+
+.page-container {
+  box-sizing: border-box;
+  min-height: calc(~'100vh - @{header-height} - @{margin} * 2');
+  background-color: #fff;
+
+  &-nav {
+    line-height: 60px;
+    border-bottom: 1px solid #eee;
+    padding-left: 20px;
+    font-size: 16px;
+    color: @text-color;
+  }
+
+  &-content {
+    padding: 20px;
+  }
+}
+
+.layout-large & {
+  .page-container {
+    margin: 20px;
+
+    &-content {
+      padding: 20px;
+    }
+  }
+}
+
+.layout-small & {
+  .page-container {
+    &-content {
+      padding: 10px;
+    }
+  }
+}

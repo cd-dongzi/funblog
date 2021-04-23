@@ -1,0 +1,26 @@
+.message {
+  &-editor {
+    margin-bottom: 20px;
+  }
+
+  &-input {
+    width: 100%;
+    display: block;
+    color: var(--text_color);
+    background-color: var(--gray_8);
+    resize: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.42858;
+    border: 1px solid transparent;
+    outline: none;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--primary_opacity_2);
+      border-color: var(--primary);
+      background-color: var(--white);
+    }
+  }
+}

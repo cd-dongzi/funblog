@@ -1,0 +1,35 @@
+
+.activeF() {
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.tag-button {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 10px;
+  background-color: #fff;
+  color: var(--text_color);
+  line-height: 30px;
+  box-shadow: 0 13px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  transition: 0.25s;
+  cursor: pointer;
+
+  &.active {
+    .activeF();
+
+    box-shadow: 0 3px 3px rgba(32, 160, 255, 0.32);
+  }
+
+  &:hover {
+    .activeF();
+
+    // 侧边栏滚动这些属性会导致晃动
+    .layout-large & {
+      transform: translateY(3px);
+      box-shadow: 0 3px 3px rgba(32, 160, 255, 0.32);
+    }
+  }
+}

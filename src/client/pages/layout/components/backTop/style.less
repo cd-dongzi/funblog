@@ -1,0 +1,22 @@
+.back-top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  font-size: 34px;
+  text-align: center;
+  line-height: 40px;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: var(--zIndex_2);
+  transform: translateX(100px);
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  &.show {
+    transform: translateX(0);
+  }
+}

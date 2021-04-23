@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@server/*": ["src/server/*"],
+      "@client/*": ["src/client/*"],
+      "@admin/*": ["src/admin/*"],
+      "@root/*": ["./*"]
+    },
+    "baseUrl": "./",
+    "rootDir": "./"
+  },
+  "include": ["scripts", "build", "src/server"],
+  "exclude": ["src/client", "src/admin"],
+  "files": [
+    "./src/types/global.d.ts",
+    "./src/types/index.ts"
+  ]
+}

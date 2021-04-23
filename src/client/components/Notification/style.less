@@ -1,0 +1,60 @@
+.notification {
+  &-container {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    z-index: var(--zIndex_3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &-animate {
+    &-enter,
+    &-appear {
+      transform: translateX(50%);
+      margin-bottom: 0;
+      opacity: 0;
+    }
+
+    &-enter-active,
+    &-appear-active {
+      transform-origin: right;
+      margin-bottom: 15px;
+      transform: translateX(0);
+      opacity: 1;
+      transition: margin-bottom 0.35s, opacity 0.2s 0.1s, transform 0.7s cubic-bezier(0, 1.5, 0.6, 1) 0.1s;
+    }
+
+    &-exit-active {
+      margin-bottom: 0;
+      opacity: 0;
+      transform: translateX(50%);
+      transition: height 0.25s ease 0.25s, margin-bottom 0.25s ease 0.25s, opacity 0.25s, transform 0.25s;
+    }
+  }
+
+  &-animate-stack {
+    @dis-y: 100% + 10px;
+
+    &-enter,
+    &-appear {
+      opacity: 0;
+      transform: translateY(@dis-y);
+    }
+
+    &-enter-active,
+    &-appear-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transform: translateY(@dis-y);
+      transition: all 0.5s;
+    }
+  }
+}

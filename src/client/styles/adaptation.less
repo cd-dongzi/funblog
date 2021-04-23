@@ -1,0 +1,131 @@
+.card-panel-container {
+  display: grid;
+
+  .card-panel {
+    max-width: 350px;
+
+    .screen-xs & {
+      max-width: inherit;
+    }
+  }
+
+  .screen-xs & {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .screen-sm & {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+
+  .screen-md & {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  .screen-lg & {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+  }
+
+  .screen-xl & {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  .screen-xxl & {
+    grid-template-columns: repeat(5, minmax(230px, 1fr));
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+}
+
+.card-stretch-container {
+  display: grid;
+
+  .card-stretch {
+    max-width: 350px;
+
+    .screen-xs & {
+      max-width: inherit;
+    }
+  }
+
+  .screen-xs & {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+  }
+
+  .screen-sm & {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  .screen-md & {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+  }
+
+  .screen-lg & {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+  }
+
+  .screen-xl & {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+  }
+
+  .screen-xxl & {
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+  }
+}
+
+.card-strip-container {
+  display: grid;
+
+  .screen-xs & {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 14px;
+    grid-row-gap: 14px;
+  }
+
+  .screen-sm & {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 14px;
+    grid-row-gap: 14px;
+  }
+
+  .screen-md & {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+
+  .screen-lg & {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+  }
+
+  .screen-xl &,
+  .screen-xxl & {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}

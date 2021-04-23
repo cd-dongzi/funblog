@@ -1,0 +1,20 @@
+.me {
+  &-main {
+    width: 100%;
+    box-shadow: 0 13px 15px var(--gray_opacity_1);
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: var(--white);
+    position: relative;
+
+    .layout-large & {
+      padding: 20px 0;
+      border-radius: 13px;
+    }
+
+    .layout-small & {
+      padding: 15px 0;
+      border-radius: 0;
+    }
+  }
+}

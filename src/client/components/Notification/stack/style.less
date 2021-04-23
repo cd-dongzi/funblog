@@ -1,0 +1,31 @@
+.notification-stack {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  overflow: hidden;
+  width: 260px;
+  max-height: 250px;
+  color: #ddd;
+  border-radius: 5px;
+  background-color: rgba(35, 40, 45, 0.9);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+
+  .title {
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    border-bottom: 1px solid #e22002;
+  }
+
+  .info {
+    font-size: 13px;
+    padding: 12px;
+    word-break: break-all;
+
+    .msg {
+      line-height: 22px;
+      text-align: center;
+      white-space: pre;
+    }
+  }
+}
