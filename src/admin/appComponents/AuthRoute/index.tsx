@@ -21,7 +21,6 @@ const AuthRoute: AuthRoute = ({ Component, ...props }) => {
   const isLoginPage = location.pathname === '/login'
   const user = useSelector((state: IStoreState) => state.user)
   const [loading, setLoading] = useState(!user._id && !isLoginPage)
-  const history = useHistory()
   const token = Cookie.get(rootConfig.adminTokenKey)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -45,7 +44,7 @@ const AuthRoute: AuthRoute = ({ Component, ...props }) => {
       }
     }
     load()
-  }, [token, user._id, dispatch, history])
+  }, [token, user._id, dispatch])
   if (loading && token) {
     return <LoadingPage />
   }
