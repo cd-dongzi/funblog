@@ -124,7 +124,7 @@ const UploadImg: UploadImg = ({ value, isMultiple = false, limit = 4, crop = fal
         footer={null}
         onCancel={() => setPreview((prev) => ({ ...prev, previewVisible: false }))}
       >
-        <img alt="example" style={{ width: '100%' }} src={preview.previewImage} />
+        <img className="preview-img" style={{ width: '100%' }} src={preview.previewImage} />
       </Modal>
     </>
   )

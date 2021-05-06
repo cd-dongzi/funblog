@@ -148,7 +148,8 @@ const Cropper: Cropper = ({ children, quality }) => {
   }
 
   const getPreviewSrc = async () => {
-    if (cropGif) {
+    const hasGifFile = fileRef.current.type.includes('gif')
+    if (cropGif && hasGifFile) {
       const blob = await cropGifHandle()
       return URL.createObjectURL(blob)
     } else {
@@ -169,14 +170,15 @@ const Cropper: Cropper = ({ children, quality }) => {
   const onOk = async () => {
     setLoading(true)
     try {
-      if (!cropGif) {
-        const newFile = await cropImgHandle()
-        resolveRef.current?.(newFile)
-      } else {
+      const hasGifFile = fileRef.current.type.includes('gif')
+      if (cropGif && hasGifFile) {
         const blob = await cropGifHandle()
         const { name, uid } = fileRef.current
         const newFile: any = new File([blob], name, { type: blob.type })
         newFile.uid = uid
+        resolveRef.current?.(newFile)
+      } else {
+        const newFile = await cropImgHandle()
         resolveRef.current?.(newFile)
       }
     } catch (err) {
