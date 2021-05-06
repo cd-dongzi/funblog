@@ -132,7 +132,7 @@ const BlogTpl: BlogTpl = ({ title, confirmBtnText, loading, initState, onAction 
           <TagSelect tags={tags} />
         </Form.Item>
         <Form.Item name="cover" label="封面" rules={[{ required: true, message: '请选择封面' }]}>
-          <UploadImg isCrop />
+          <UploadImg crop />
         </Form.Item>
         <Form.Item name="fileType" label="文件类型">
           <Select>

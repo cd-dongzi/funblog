@@ -108,7 +108,7 @@ const BlogTpl: BlogTpl = ({ title, confirmBtnText, loading, initState, onAction 
           <TagSelect tags={tags} />
         </Form.Item>
         <Form.Item name="cover" label="文章图片" rules={[{ required: true, message: '请选择文章图片' }]}>
-          <UploadImg isCrop />
+          <UploadImg crop />
         </Form.Item>
         <Form.Item wrapperCol={{ span: 21 }} name="md" label="文章内容" rules={[{ required: true, message: '请输入文章内容' }]}>
           <MdEditor />

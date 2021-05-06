@@ -111,7 +111,7 @@ export const adminLoader = [
     include: [utils.resolve('node_modules/rc-upload')]
   }),
   cssLoadder({
-    include: [utils.resolve('node_modules/react-markdown-editor-lite')]
+    include: [utils.resolve('node_modules/react-markdown-editor-lite'), utils.resolve('node_modules/cropperjs')]
   }),
   lessLoader({
     options: {

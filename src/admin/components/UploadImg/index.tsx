@@ -6,7 +6,7 @@ import { UploadFile } from 'antd/lib/upload/interface'
 import { UploadRequestOption } from 'rc-upload/lib/interface.d'
 import { getBase64ByFile } from '@/utils/app'
 import Type from '@root/src/shared/type'
-import ImgCrop from 'antd-img-crop'
+import { Cropper } from '@/components'
 import 'antd/es/slider/style'
 
 type FileItem =
@@ -26,13 +26,13 @@ type Props = {
   onChange?: (value?: Value) => void
   isMultiple?: boolean
   limit?: number
-  isCrop?: boolean
+  crop?: boolean
 }
 interface UploadImg {
   (props: Props): JSX.Element | null
 }
 
-const UploadImg: UploadImg = ({ value, isMultiple = false, limit = 4, isCrop = false, onChange }) => {
+const UploadImg: UploadImg = ({ value, isMultiple = false, limit = 4, crop = false, onChange }) => {
   const [fileList, setFileList] = useState<FileItem[]>([])
   const [preview, setPreview] = useState({
     previewImage: '',
@@ -117,13 +117,7 @@ const UploadImg: UploadImg = ({ value, isMultiple = false, limit = 4, isCrop = f
   )
   return (
     <>
-      {isCrop ? (
-        <ImgCrop quality={0.7} rotate>
-          {dom}
-        </ImgCrop>
-      ) : (
-        dom
-      )}
+      {crop ? <Cropper>{dom}</Cropper> : dom}
       <Modal
         visible={preview.previewVisible}
         title={preview.previewTitle}
