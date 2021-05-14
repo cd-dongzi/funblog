@@ -2,7 +2,6 @@ import path from 'path'
 import fs from 'fs'
 import rootConfig from '@root/src/shared/config'
 import paths from '@root/build/paths'
-
 let httpsOptions = {} as {
   key: Buffer
   cert: Buffer
@@ -21,7 +20,7 @@ export default {
     authSource: 'admin',
     ...rootConfig.mongodb
   },
-  httpsOptions,
+  httpsOptions: httpsOptions,
   loginEmailWhiteList: rootConfig.loginEmailWhiteList,
   staticDir: 'public',
   jwtSecret: rootConfig.jwtSecret,

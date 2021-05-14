@@ -1,5 +1,4 @@
 import webpack from 'webpack'
-import chalk from 'chalk'
 import ora from 'ora'
 import getConfig from '@root/build/webpack'
 import { logMsg } from './utils'

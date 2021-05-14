@@ -29,7 +29,7 @@ const getSystemParams = (ctx: Context) => {
 export const addUser = (ctx: Context, params: AnyObject): Promise<UserDocument> => {
   const createAvatar = () => {
     const num = randNumber(1, 21)
-    return `${ctx.protocol}://${ctx.host}/avatar/${num}.jpg`
+    return `${rootConfig.oss.prefix}avatar/${num}.jpg`
   }
   return new Promise(async (resolve, reject) => {
     if (!params.avatar) {

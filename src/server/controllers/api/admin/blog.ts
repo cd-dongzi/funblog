@@ -2,6 +2,7 @@ import { Context } from 'koa'
 import { BlogModel } from '@server/models/blog'
 import File from '@server/utils/file'
 import authTokenMiddleware from '@server/middleware/authToken'
+import rootConfig from '@root/src/shared/config'
 import { formatQueryByList, getDataByPage } from '../utils'
 import { Controller, Ctx, Get, Params, Post, Put, Delete, Query, Middleware } from '@server/decorators'
 
@@ -18,7 +19,7 @@ export default class AdminBlogController {
   @Post('/blog')
   async addBlog(@Ctx() ctx: Context) {
     const paramsData = await File.uploadFile(ctx, {
-      oss: false,
+      oss: rootConfig.isProd,
       fileDir: 'blog/images/'
     })
     await BlogModel.create(paramsData)
@@ -35,7 +36,7 @@ export default class AdminBlogController {
   @Put('/blog/:id')
   async updateBlogInfo(@Ctx() ctx: Context, @Params('id') id: string) {
     const data = await File.uploadFile(ctx, {
-      oss: false,
+      oss: rootConfig.isProd,
       fileDir: 'blog/images/'
     })
     await BlogModel.findByIdAndUpdate(id, {

@@ -70,6 +70,7 @@ export interface MetaData {
 }
 
 export interface ControllerOptions {
+  app: Koa
   router: Router
   controllerPaths: string[]
   basePath?: string

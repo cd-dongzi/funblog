@@ -55,6 +55,9 @@ export default (app: Koa) => {
 
   // 静态文件中间件
   app.use(staticFiles(paths.buildClientPath, rootConfig.staticFilesOptions))
+  if (rootConfig.isTest) {
+    app.use(staticFiles(paths.buildPath, rootConfig.staticFilesOptions))
+  }
   app.use(staticFiles(utils.resolve('private'), rootConfig.staticFilesOptions))
   app.use(staticFiles(utils.resolve(serverConfig.staticDir), rootConfig.staticFilesOptions))
 }

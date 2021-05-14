@@ -12,7 +12,7 @@ router.get('/page/third-party', async (ctx, next) => {
 
 router.get('/backstage-management', async (ctx, next) => {
   ctx.type = 'text/html'
-  ctx.body = fs.createReadStream(buildUtils.resolve('private/admin/index.html'))
+  ctx.body = fs.createReadStream(buildUtils.resolve('dist/admin/index.html'))
 })
 
 export default router

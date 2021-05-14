@@ -17,6 +17,7 @@ const authTokenMiddleware = () => {
       try {
         jwt.verify(token, serverConfig.adminJwtSecret)
       } catch (e) {
+        console.log(444)
         throw {
           code: 401
         }

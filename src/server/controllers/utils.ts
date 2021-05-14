@@ -87,8 +87,7 @@ const _determineArgument = (ctx: Context, { options, source }: MetaDataArguments
 
 // 生成单个路由
 const _generateRoute = (router: Router, controller: MetaDataController, basePath: string, options: ControllerOptions) => {
-  // 把action置反，后加的action会添加到前面去，置反使其解析正确
-  const actions = Object.values(controller.actions).reverse()
+  const actions = Object.values(controller.actions)
   actions.forEach((action) => {
     const path =
       '/' +

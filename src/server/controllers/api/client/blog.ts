@@ -35,7 +35,6 @@ const aggregate = async (query: FormatQueryByListReturnType) => {
       }
     }
   ])
-  console.log(list)
   list = list.map((item) => {
     // item.comment_nums = item.comment_nums.length
     return item
@@ -77,7 +76,6 @@ export default class ClientBlogController {
       }
     })
     return await getDataByPage(query, BlogModel)
-    // return await aggregate(query)
   }
 
   // 列表分页
@@ -102,10 +100,6 @@ export default class ClientBlogController {
       },
       BlogModel
     )
-    // return await aggregate({
-    //   ...query,
-    //   filter
-    // })
   }
 
   // 关键字搜索

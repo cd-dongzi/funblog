@@ -1,10 +1,9 @@
 import { Context } from 'koa'
-import { PlayModel } from '@server/models/play'
 import File from '@server/utils/file'
 import authTokenMiddleware from '@server/middleware/authToken'
 import rootConfig from '@root/src/shared/config'
-import { formatQueryByList, getDataByPage } from '../utils'
-import { Controller, Ctx, Get, Params, Post, Put, Delete, Query, Middleware } from '@server/decorators'
+import oss from '@server/utils/oss'
+import { Controller, Ctx, Post, Middleware } from '@server/decorators'
 
 const fileDir = 'play/files/'
 
@@ -41,35 +40,23 @@ const uploadFile = async (ctx: Context, overlay = false) => {
 @Controller('/admin')
 @Middleware([authTokenMiddleware()])
 export default class AdminPlayController {
-  @Get('/plays')
-  async getPlays(@Query() query: any) {
-    const params = formatQueryByList(query)
-    const data = await getDataByPage(params, PlayModel)
-    return data
-  }
-
-  @Post('/play')
-  async addPlay(@Ctx() ctx: Context) {
-    const data = await uploadFile(ctx)
-    await PlayModel.create(data)
-  }
-
-  @Get('/play/:id')
-  async getPlayInfo(@Params('id') id: string) {
-    const data = await PlayModel.findOne({
-      _id: id
+  @Post('/oss/upload')
+  async uploadOss(@Ctx() ctx: Context) {
+    const data = await File.uploadFile(ctx, {
+      ossAction: async (file, params) => {
+        const client = oss.createOssClient({
+          region: params.region,
+          bucket: params.bucket,
+          endpoint: params.endpoint
+        })
+        const path = `${params.dir}/${params.rename && params.fileType === 'file' ? File.rename(params.filename) : params.filename}`
+          .split('/')
+          .filter((i) => i.length)
+          .join('/')
+        const url = await oss.putStream(path, file, client)
+        return url
+      }
     })
     return data
-  }
-
-  @Put('/play/:id')
-  async updatePlayInfo(@Ctx() ctx: Context, @Params('id') id: string) {
-    const data = await uploadFile(ctx, true)
-    await PlayModel.findByIdAndUpdate(id, data)
-  }
-
-  @Delete('/play/:id')
-  async deletePlay(@Params('id') id: string) {
-    await PlayModel.findByIdAndDelete(id)
   }
 }

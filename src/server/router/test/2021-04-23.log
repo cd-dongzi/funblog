@@ -1,0 +1,10 @@
+[2021-04-23T21:12:41.151] [ERROR] api - {
+  method: 'GET',
+  url: '/api/admin/user/token',
+  host: 'localhost:3000',
+  ip: '127.0.0.1',
+  referer: 'https://localhost:3022/',
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36',
+  message: 'Internal Server Error',
+  responseTime: '5ms'
+}

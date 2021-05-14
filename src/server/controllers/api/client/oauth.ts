@@ -3,8 +3,16 @@ import axios from 'axios'
 import rootConfig from '@root/src/shared/config'
 import { UserModel } from '@server/models/user'
 import { google } from 'googleapis'
+import { OAuth2Client } from 'google-auth-library'
 import { addUser, createToken } from './utils'
 import { Controller, Ctx, Get, Query } from '@server/decorators'
+
+const clientGoogle = new OAuth2Client(
+  rootConfig.google.oauth.client_id,
+  rootConfig.google.oauth.client_secret,
+  rootConfig.google.oauth.redirect_uri
+)
+
 const qqHost = 'https://graph.qq.com'
 // 获取access_token by qq
 const getAccessTokenByQQ = async (code: string) => {
@@ -50,7 +58,7 @@ const getUserInfoByQQ = async (access_token: string, openid: string) => {
   })
   return {
     name: data.nickname,
-    avatar: data.figureurl_2
+    avatar: data.figureurl_qq_2 || data.figureurl_qq_1
   }
 }
 
@@ -102,8 +110,6 @@ const createOrUpdateUser = async (filter: AnyObject, params: AnyObject, ctx: Con
 
 @Controller('/client/user')
 export default class ClientOauthController {
-  oauth = rootConfig.google.oauth
-  oAuth2Client = new google.auth.OAuth2(this.oauth.client_id, this.oauth.client_secret, this.oauth.redirect_uri)
   @Get('/oauth/github')
   async oauthGithub(@Query('code') code: string, @Ctx() ctx: Context) {
     try {
@@ -159,20 +165,43 @@ export default class ClientOauthController {
     }
   }
 
+  @Get('/oauth/google/token')
+  async oauthGoogleByToken(@Query('id_token') id_token: string) {
+    console.log('id_token', id_token)
+    // const ticket = await clientGoogle.verifyIdToken({
+    //   idToken: id_token,
+    //   audience: rootConfig.google.oauth.client_id // Specify the CLIENT_ID of the app that accesses the backend
+    //   // Or, if multiple clients access the backend:
+    //   //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+    // })
+    // const payload = ticket.getPayload()
+    // console.log('payload', payload)
+    // 获取token, 需要代理
+    // const { tokens } = await this.oAuth2Client.getToken(code as string)
+    // console.log('tokens', tokens)
+    // this.oAuth2Client.setCredentials(tokens)
+    return 'ok'
+  }
+
   @Get('/oauth/google')
   async oauthGoogle(@Query('code') code: string) {
     console.log('code', code)
+    // const { data } = await axios({
+    //   method: 'get',
+    //   url: `https://oauth2.googleapis.com/tokeninfo?id_token=${code}`
+    // })
+    // console.log(data)
     // 获取token, 需要代理
-    const { tokens } = await this.oAuth2Client.getToken(code as string)
-    console.log('tokens', tokens)
-    this.oAuth2Client.setCredentials(tokens)
+    // const { tokens } = await clientGoogle.getToken(code)
+    // console.log('tokens', tokens)
+    // this.oAuth2Client.setCredentials(tokens)
     return 'ok'
   }
 
   @Get('/oauth/google/url')
   async oauthGoogleUrl() {
     const scopes = ['https://www.googleapis.com/auth/userinfo.profile']
-    const authorizeUrl = this.oAuth2Client.generateAuthUrl({
+    const authorizeUrl = clientGoogle.generateAuthUrl({
       access_type: 'offline',
       scope: scopes,
       prompt: 'select_account'

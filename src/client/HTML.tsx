@@ -8,20 +8,18 @@ type Props = {
   children: string
   helmetContext: AnyObject
   scripts: ReactElement<any>[]
-  styles: ReactElement<any>[]
   inlineStyle?: ReactElement<any>[] // 内联style
   links: ReactElement<any>[] // link
   state: IStoreState
   favicon: string
 }
 
-const HTML = ({ children, helmetContext: { helmet }, scripts, styles, inlineStyle, links, state, favicon }: Props) => {
+const HTML = ({ children, helmetContext: { helmet }, scripts, inlineStyle, links, state, favicon }: Props) => {
   const metaComponents = helmet.meta.toComponent()
   const titleComponents = helmet.title.toComponent()
   const hasTitle = !!titleComponents[0].props.children
-  const isInlineStyle = !!inlineStyle
   const filterLinks = links.filter((link) => {
-    if (isInlineStyle && link.props.as === 'style') {
+    if (link.props.as === 'style') {
       return false
     }
     return true
@@ -57,7 +55,7 @@ const HTML = ({ children, helmetContext: { helmet }, scripts, styles, inlineStyl
             .map((key) => `${key}:${theme.light[key]};`)
             .join('')}}`}
         </style>
-        {isInlineStyle ? inlineStyle : styles}
+        {inlineStyle}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.__PRELOADED_STATE__ = ${JSON.stringify(state).replace(/</g, '\\u003c')}`

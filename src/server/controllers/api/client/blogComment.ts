@@ -1,10 +1,26 @@
 import { BlogCommentModel } from '@server/models/blogComment'
 import { CounterModel } from '@server/models/counter'
+import sms from '@server/utils/sms'
 import { Body, Controller, Get, Post, Put, Query, Token } from '@server/decorators'
 import { filterXSS } from '@root/src/shared/utils/xss'
 import { formatQueryByList, getDataByPage } from '../utils'
 import ClientUserController from './user'
 import { BlogModel } from '@server/models/blog'
+import { UserDocument } from '@server/models/user'
+
+// 发送短信
+const sendSms = (articleId: string, data: UserDocument, content: string, type: string) => {
+  BlogModel.findById(articleId).then((res) => {
+    if (res) {
+      sms.sendSmsByBlogComment({
+        title: res.title,
+        type,
+        name: data.name,
+        msg: content
+      })
+    }
+  })
+}
 
 @Controller('/client')
 export default class ClientBlogCommentController {
@@ -59,6 +75,7 @@ export default class ClientBlogCommentController {
           comment_nums: count
         }
       )
+      sendSms(articleId, data, content, '文章留言')
     }
   }
   // 回复
@@ -85,6 +102,7 @@ export default class ClientBlogCommentController {
         },
         data
       )
+      sendSms(data.articleId, userData, replayContent, '文章回复')
     }
     return data
   }

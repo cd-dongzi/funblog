@@ -22,7 +22,7 @@ export const start = () => {
     mongoose.connect(`mongodb://${config.mongodb.address}/${config.mongodb.db}`, mongoOptions, (err) => {
       if (err) {
         console.log('数据库连接失败！')
-        reject(err)
+        resolve(null)
       } else {
         console.log('数据库连接成功！')
         resolve(null)
