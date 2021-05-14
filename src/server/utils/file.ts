@@ -20,6 +20,13 @@ const mkdirSync = (dirname: string) => {
     }
   }
 }
+// 重命名
+function rename(fileName: string, hasPrefix = false) {
+  const arr = fileName.split('.')
+  const prefix = arr[0],
+    suffix = arr[1]
+  return `${hasPrefix ? `${prefix}-` : ''}${Math.random().toString(16).substr(2)}.${suffix}`
+}
 // 设值
 function setVal(fieldname: string, val: any, formObj: AnyObject) {
   const index = fieldname.lastIndexOf('[]')
@@ -37,8 +44,6 @@ type Options = {
   rename?: boolean // 是否重命名
   fileDir?: string // 文件写入目录
   overlay?: boolean // 文件是否可覆盖
-  ossAction?: (file: File, opts: AnyObject) => Promise<string>
-  // disabledWriteFile?: boolean // 不写入文件，直接返回文件，外部处理
 }
 class File {
   static defaultOptions = {
@@ -57,15 +62,6 @@ class File {
     }
   }
 
-  // 重命名
-  static rename(fileName: string) {
-    const arr = fileName.split('.')
-    const suffix = arr[1]
-    if (rootConfig.isProd) {
-      return `${new Date().getTime()}.${suffix}`
-    }
-    return `${rootConfig.NODE_ENV}-${new Date().getTime()}.${suffix}`
-  }
   // 上传文件
   static uploadFile<T extends AnyObject>(ctx: Context, options: Options | Record<string, Options> = File.defaultOptions) {
     const busboy = new Busboy({
@@ -93,18 +89,7 @@ class File {
           ...opts
         }
 
-        // 自定义oss上传方式
-        if (opts.ossAction) {
-          const url = await opts.ossAction(file, {
-            ...formObj,
-            filename: filename.split(rootConfig.fileSeparation).join('/')
-          })
-          setVal(fieldname, url, formObj)
-          onResolve()
-          return
-        }
-
-        const name = opts.rename ? File.rename(filename) : filename.split(rootConfig.fileSeparation).join('/')
+        const name = opts.rename ? rename(filename) : filename.split(rootConfig.fileSeparation).join('/')
         const filePath = `${opts.fileDir}${name}`
         // 上传oss
         if (opts.oss) {
@@ -133,7 +118,11 @@ class File {
 
           file.pipe(fs.createWriteStream(fullFilPath))
           file.on('end', async () => {
-            setVal(fieldname, `${ctx.protocol}://${ctx.host}/${opts.fileDir}${name}`, formObj)
+            setVal(
+              fieldname,
+              `${rootConfig.scheme}://${rootConfig.app.server.host}:${rootConfig.app.server.port}/${opts.fileDir}${name}`,
+              formObj
+            )
             onResolve()
           })
           file.on('error', (e) => {
@@ -142,7 +131,7 @@ class File {
         }
       })
 
-      busboy.on('field', (fieldname, val) => {
+      busboy.on('field', (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) => {
         setVal(fieldname, JSON.parse(val), formObj)
       })
       busboy.on('finish', async () => {

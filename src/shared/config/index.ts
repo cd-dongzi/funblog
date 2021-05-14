@@ -4,8 +4,6 @@ const isProd = NODE_ENV === 'production'
 const isDev = NODE_ENV === 'development'
 const env = NODE_ENV
 const isHttps = true
-// 开发环境 文件端口
-const clientPort = 3012
 // 管理后台端口
 const adminPort = 3022
 const devHttpPort = 3001
@@ -14,7 +12,6 @@ const prodHttpPort = devHttpPort
 const prodHttpsPort = devHttpsPort
 const dev = {
   server: {
-    clientPort,
     adminPort,
     httpPort: devHttpPort,
     httpsPort: devHttpsPort,
@@ -26,7 +23,6 @@ const dev = {
 
 const prod = {
   server: {
-    clientPort,
     adminPort,
     httpPort: prodHttpPort,
     httpsPort: prodHttpsPort,
@@ -47,6 +43,7 @@ export default {
   isDev,
   NODE_ENV,
   isHttps,
+  scheme: isHttps ? 'https' : 'http',
   loginTokenKey: 'authorization' as LoginTokenKey,
   adminTokenKey: 'a_token',
   jwtSecret: config.jwtSecret,

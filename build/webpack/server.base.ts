@@ -21,7 +21,8 @@ const serverBaseWebpackConfig: webpack.Configuration = merge(createBaseConfig(),
   output: {
     path: paths.buildServerPath,
     publicPath: paths.publicPath,
-    filename: 'entry.js'
+    filename: 'entry.js',
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],

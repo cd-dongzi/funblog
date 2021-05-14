@@ -2,7 +2,6 @@ import { Context } from 'koa'
 import { PlayModel } from '@server/models/play'
 import File from '@server/utils/file'
 import authTokenMiddleware from '@server/middleware/authToken'
-import rootConfig from '@root/src/shared/config'
 import { formatQueryByList, getDataByPage } from '../utils'
 import { Controller, Ctx, Get, Params, Post, Put, Delete, Query, Middleware } from '@server/decorators'
 
@@ -23,7 +22,7 @@ const uploadFile = async (ctx: Context, overlay = false) => {
       overlay
     },
     cover: {
-      oss: rootConfig.isProd,
+      oss: false,
       rename: true,
       fileDir: 'play/images/'
     }

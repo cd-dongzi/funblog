@@ -2,7 +2,6 @@ import { CommentModel } from '@server/models/comment'
 import { CounterModel } from '@server/models/counter'
 import { Body, Controller, Get, Post, Put, Query, Token } from '@server/decorators'
 import { filterXSS } from '@root/src/shared/utils/xss'
-import sms from '@server/utils/sms'
 import { formatQueryByList, getDataByPage } from '../utils'
 import ClientUserController from './user'
 
@@ -46,12 +45,6 @@ export default class ClientCommentController {
         content: filterXSS(content),
         floor: counterData.count
       })
-      sms.sendSmsByComment({
-        title: '',
-        type: '留言板留言',
-        name: data.name,
-        msg: content
-      })
     }
   }
 
@@ -79,12 +72,6 @@ export default class ClientCommentController {
         },
         data
       )
-      sms.sendSmsByComment({
-        title: data.content,
-        type: '留言板回复',
-        name: data.name,
-        msg: replayContent
-      })
     }
   }
 }

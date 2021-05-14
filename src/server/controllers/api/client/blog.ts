@@ -76,6 +76,7 @@ export default class ClientBlogController {
       }
     })
     return await getDataByPage(query, BlogModel)
+    // return await aggregate(query)
   }
 
   // 列表分页
@@ -100,6 +101,10 @@ export default class ClientBlogController {
       },
       BlogModel
     )
+    // return await aggregate({
+    //   ...query,
+    //   filter
+    // })
   }
 
   // 关键字搜索

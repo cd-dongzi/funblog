@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import LoadablePlugin from '@loadable/webpack-plugin'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
 import SentryWebpackPlugin from '@sentry/webpack-plugin'
+import ReactSSRServerPlugin from '../plugins/react-ssr-server'
 import paths from '../paths'
 import config from '../config'
 
@@ -31,6 +32,7 @@ const serverPlugins = [
     'process.env.BROWSER_ENV': 'false',
     'process.env.REACT_ENV': '"server"'
   }),
+  new ReactSSRServerPlugin(),
   caseSensitivePathsPlugin
 ]
 

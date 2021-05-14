@@ -13,9 +13,6 @@ export default class ClientPlayController {
   @Get('/plays')
   async getPlays(@Query() query: any) {
     const params = formatQueryByList(query, {
-      filter: {
-        isVisible: true
-      },
       options: {
         projection: {
           file: 0,

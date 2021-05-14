@@ -31,6 +31,13 @@ const printServer = (protocol: string, port: number) => {
 - Local:   ${chalk.cyan(ServerLocalAddress)}
 - Network: ${chalk.cyan(ServerNetworkAddress)}`
   )
+  if (rootConfig.isProd) {
+    console.log(
+      `\nAdmin server running at:
+  - Local:   ${chalk.cyan(`${rootConfig.scheme}://localhost:${port}/backstage-management`)}
+  - Network: ${chalk.cyan(`${rootConfig.scheme}://${ip.address()}:${port}/backstage-management`)}`
+    )
+  }
 }
 
 Promise.all([start(), SSR(app)])

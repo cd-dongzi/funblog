@@ -77,6 +77,7 @@ const startServer = (cb: (manifest: any) => void) => {
         }
         if (!err && !stats.hasErrors()) {
           const data = serverCompiler.outputFileSystem.readFileSync(path.join(serverWebpackConfig.output.path, DEFAULT_FILENAME))
+          require('fs').writeFileSync(path.resolve(__dirname, './test.json'), data)
           cb(JSON.parse(data))
           resolve()
         } else {
@@ -87,7 +88,7 @@ const startServer = (cb: (manifest: any) => void) => {
   })
 }
 
-// 构建client 跟 server
+// 构建
 const start = async (app: Koa, cb: (opts: { loadableStats: any; serverManifest: any; inputFileSystem: MFS }) => void) => {
   let loadableStats: any, serverManifest: any, inputFileSystem: MFS
   const update = () => {

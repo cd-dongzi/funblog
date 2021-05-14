@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true
-  },
-  "include": ["scripts", "build", "src/server"],
-  "exclude": ["src/client", "src/admin"]
-}

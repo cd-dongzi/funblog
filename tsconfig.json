@@ -1,9 +1,14 @@
 {
   "extends": "./tsconfig.base.json",
+  "ts-node": {
+    "files": true
+  },
   "compilerOptions": {
+    "module": "commonjs",
     "paths": {
       "@server/*": ["src/server/*"],
       "@client/*": ["src/client/*"],
+      "@/*": ["src/client/*"],
       "@admin/*": ["src/admin/*"],
       "@root/*": ["./*"]
     },
@@ -14,6 +19,7 @@
   "exclude": ["src/client", "src/admin"],
   "files": [
     "./src/types/global.d.ts",
-    "./src/types/index.ts"
+    "./src/types/index.ts",
+    "./src/types/window.d.ts"
   ]
 }

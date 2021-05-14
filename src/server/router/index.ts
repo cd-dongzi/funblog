@@ -3,8 +3,7 @@ import KoaRouter from 'koa-router'
 import { bootstrapControllers } from '@server/controllers'
 import { routerErrorMiddleware, loggerApiMiddleware } from '@server/middleware'
 import page from './routes/page'
-import updateOldData from './update/oldData'
-import updateOss from './update/oss'
+import update from './update'
 
 const router = new KoaRouter<DefaultState, Context>()
 
@@ -15,11 +14,9 @@ export default (app: Koa) => {
   // page页面
   router.use(page.routes())
 
-  updateOldData(router)
-  updateOss(router)
+  update(router)
 
   bootstrapControllers({
-    app,
     router,
     basePath: '/api',
     controllerPaths: ['controllers/api/*/**/*.ts'],

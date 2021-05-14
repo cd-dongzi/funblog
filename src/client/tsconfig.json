@@ -3,6 +3,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["src/client/*"],
+      "@client/*": ["src/client/*"],
       "@server/*": ["src/server/*"],
       "@root/*": ["./*"]
     },

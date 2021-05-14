@@ -116,13 +116,13 @@ export const createBundleRenderer = (options: CreateBundleRendererOptions): Rend
   const entry = options.serverManifest.entry
   const files = options.serverManifest.files
   const maps = createSourceMapConsumers(options.serverManifest.maps)
-  const runner = createRunner(entry, files)
+  const run = createRunner(entry, files)
   return {
     renderToString: (context: IContext = {}, opts?: RendererOptions) => {
       return new Promise<string>((resolve, reject) => {
         context.loadableStats = options.loadableStats
         context.inputFileSystem = options.inputFileSystem
-        runner(context, opts)
+        run(context, opts)
           .then((html) => {
             resolve(html)
           })
