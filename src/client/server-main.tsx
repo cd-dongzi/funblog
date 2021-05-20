@@ -129,6 +129,7 @@ export default async (context: IContext, options: RendererOptions = {}) => {
       <HTML
         helmetContext={helmetContext}
         scripts={extractor.getScriptElements()}
+        styles={extractor.getStyleElements()}
         inlineStyle={await extractor.getInlineStyleElements()}
         links={extractor.getLinkElements()}
         favicon={'/static/client_favicon.ico'}

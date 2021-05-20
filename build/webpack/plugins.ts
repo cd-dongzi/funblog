@@ -69,7 +69,9 @@ const adminPlugins = [
     inject: true
   })
 ]
-
+if (config.isDev) {
+  clientPlugins.push(new webpack.HotModuleReplacementPlugin())
+}
 if (config.openSentrySourceMap && !process.env.NODE_PREVIEW) {
   clientPlugins.push(
     new SentryWebpackPlugin({
