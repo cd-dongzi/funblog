@@ -1,0 +1,22 @@
+.container {
+  .item {
+    width: 100% !important;
+  }
+  :global {
+    .ant-form-item-label {
+      width: 140px;
+    }
+    .ant-form-item-control {
+      flex: 1;
+    }
+    .ant-pro-form-list-container {
+      width: 100%;
+    }
+    .ant-space-item {
+      flex: 1;
+    }
+    .ant-space {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@layer utilities {
+  .mask-scroll {
+    mask:
+      linear-gradient(transparent, theme(colors.black) 1rem, theme(colors.black) calc(100% - 1rem), transparent),
+      linear-gradient(theme(colors.black), theme(colors.black)) no-repeat right top/12px 100%;
+  }
+}

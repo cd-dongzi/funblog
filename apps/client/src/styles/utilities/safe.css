@@ -1,0 +1,14 @@
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}

@@ -1,0 +1,11 @@
+model Link {
+  id        Int      @id @default(autoincrement())
+  title     String
+  desc      String
+  url       String
+  logo      String   @db.Text
+  type      String
+  visible   Boolean  @default(true)
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}

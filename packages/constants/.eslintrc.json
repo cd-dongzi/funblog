@@ -1,0 +1,3 @@
+{
+  "extends": ["@funblog/eslint-config/common-ts"]
+}

@@ -1,0 +1,85 @@
+.login {
+  width: 310px;
+  background: theme(colors.gray9);
+  padding: 30px 0;
+  border-radius: 20px;
+  box-shadow: 0 1px 1px theme(colors.white) inset, 0 15px 20px theme(colors.gray/0.3);
+  position: relative;
+  transition: 0.3s ease-out;
+
+  .close {
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    font-size: 20px;
+  }
+
+  .nav {
+    color: theme(colors.primary);
+    font-size: 24px;
+    border-left: 3px solid theme(colors.primary);
+    text-shadow: 0 1px 1px #fff;
+    padding-left: 22px;
+    margin-bottom: 25px;
+  }
+
+  .main {
+    padding: 0 25px;
+  }
+
+  .input {
+    margin: 10px 0 25px
+  }
+
+  .tip {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 6px;
+  }
+
+  .btn {
+    width: 150px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    box-shadow: 0 6px 12px theme(colors.primary/0.5);
+    margin: 0 auto;
+    display: block;
+    border-radius: 18px;
+    color: theme(colors.white);
+    font-size: 14px;
+    /* font-size: 16px; */
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 8px 15px theme(colors.primary/0.7);
+    }
+
+    &.loading {
+      pointer-events: none;
+
+      .icon {
+        animation: rotate360 2s linear infinite;
+      }
+    }
+  }
+}
+
+.btn {
+  width: 150px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  box-shadow: 0 6px 12px theme(colors.primary/0.5);
+  margin: 0 auto;
+  display: block;
+  border-radius: 18px;
+  color: theme(colors.white);
+  font-size: 14px;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 15px theme(colors.primary/0.7);
+  }
+}

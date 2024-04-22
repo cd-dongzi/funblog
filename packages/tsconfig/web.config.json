@@ -1,0 +1,11 @@
+{
+  "extends": "./base.config.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "module": "esnext",
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules"]
+}

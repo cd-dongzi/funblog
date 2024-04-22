@@ -1,0 +1,64 @@
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: theme(colors.black/0.45);
+  z-index: theme(zIndex.l5);
+}
+.content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: theme(zIndex.l5);
+}
+
+/* @mask-duration: 0.5s;
+
+.opa() {
+  &-appear {
+    opacity: 0;
+  }
+
+  &-appear-active {
+    opacity: 1;
+    transition: opacity @mask-duration;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity @mask-duration;
+  }
+}
+
+.fixed() {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--zIndex_2);
+}
+
+.dialog {
+  &-mask {
+    .fixed();
+  }
+
+  &-content {
+    .fixed();
+
+    overflow: auto;
+  }
+
+  &-mask-animate {
+    .opa();
+  }
+
+  &-content-animate {
+    .opa();
+  }
+} */

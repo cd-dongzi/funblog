@@ -1,0 +1,4 @@
+{
+  "extends": ["@funblog/eslint-config/web"],
+  "ignorePatterns": ["**/*.d.ts"]
+}

@@ -1,8 +1,0 @@
-{
-  "apps": {
-    "name": "blog",
-    "script": "./scripts/start.ts",
-    "interpreter": "./node_modules/.bin/ts-node",
-    "cwd": "./"
-  }
-}

@@ -1,0 +1,21 @@
+{
+  "name": "@funblog/types",
+  "version": "2.0.8",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "types/index.d.ts",
+  "description": "typescript types for funblog",
+  "keywords": [
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "NODE_ENV=development funblog lib dev",
+    "build": "NODE_ENV=production funblog lib build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@funblog/cli": "workspace:*",
+    "@funblog/eslint-config": "workspace:*",
+    "@funblog/tsconfig": "workspace:*"
+  }
+}

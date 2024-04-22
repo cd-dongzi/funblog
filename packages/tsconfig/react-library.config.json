@@ -1,0 +1,7 @@
+{
+  "display": "React Library",
+  "extends": "./library.config.json",
+  "compilerOptions": {
+    "jsx": "react"
+  }
+}

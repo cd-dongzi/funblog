@@ -1,0 +1,102 @@
+@define-mixin dot {
+  content: '';
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+  transform-origin: bottom;
+  transform: scaleY(0.75);
+}
+@define-mixin arrow {
+  content: '';
+  display: inline-block;
+  border-style: solid;
+  border-width: 20px 8px;
+  vertical-align: bottom;
+}
+
+@define-mixin create $start-color, $center-color, $end-color, $left-color, $right-color, $shadow {
+  .content {
+    height: 100%;
+    display: inline-block;
+    font-size: 16px;
+
+    .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &.left {
+    filter: drop-shadow(5px 6px 5px $shadow);
+
+    .content {
+      padding-left: 10px;
+      background: linear-gradient(90deg, $start-color, $center-color 6px, $end-color);
+      border-bottom-left-radius: 5px;
+    }
+
+    &::before {
+      left: 0;
+      top: -10px;
+      border-color: transparent $left-color $left-color transparent;
+      @mixin dot;
+    }
+
+    &::after {
+      border-color: $right-color transparent transparent $right-color;
+      @mixin arrow;
+    }
+  }
+
+  &.right {
+    filter: drop-shadow(-5px 6px 5px $shadow);
+
+    .content {
+      padding-right: 10px;
+      background: linear-gradient(90deg, $end-color, $center-color calc(100% - 6px), $start-color);
+      border-bottom-right-radius: 5px;
+    }
+
+    &::before {
+      border-color: transparent $right-color $right-color transparent;
+      @mixin arrow;
+    }
+
+    &::after {
+      right: 0;
+      top: -10px;
+      border-color: transparent transparent $left-color $left-color;
+      @mixin dot;
+    }
+  }
+}
+
+.badgeRibbon {
+  position: relative;
+  display: inline-block;
+  color: theme(colors.white);
+  font-size: 0;
+  height: 40px;
+
+  &.primary {
+    --start-color: theme(colors.secondary-light-2);
+    --center-color: theme(colors.secondary);
+    --end-color: theme(colors.primary-dark-1);
+    --left-color: theme(colors.secondary-dark-1);
+    --right-color: theme(colors.primary-dark-1);
+    --shadow: theme(colors.primary/0.3);
+  }
+
+  &.red {
+    --start-color: #ffb350;
+    --center-color: #ff7849;
+    --end-color: #ff4949;
+    --left-color: #ca1f1e;
+    --right-color: #ff4949;
+    --shadow: rgba(255, 73, 73, 0.3);
+  }
+  @mixin create var(--start-color), var(--center-color), var(--end-color), var(--left-color), var(--right-color),
+    var(--shadow);
+}

@@ -1,0 +1,29 @@
+import { Tag } from "../../tag/prisma/tag"
+import { Category } from "../../category/prisma/category"
+import { Comment } from "../../comment/prisma/comment"
+import { User, UserLike, UserRead } from "../../user/prisma/user"
+
+model Post {
+  id            Int        @id @default(autoincrement())
+  title         String     @unique
+  alias         String     @unique
+  content       String     @db.LongText
+  summary       String?    @db.Text
+  cover         String?
+  priority      Int        @default(1)
+  enableComment Boolean    @default(true)
+  encrypted     Boolean    @default(false)
+  password      String?
+  visible       Boolean    @default(false)
+  github        String?
+  tags          Tag[]
+  categories    Category[]
+  userLikes     UserLike[]
+  userReads     UserRead[]
+  userComments  Comment[]
+  user          User?       @relation(fields: [userId], references: [id])
+  userId        Int?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}

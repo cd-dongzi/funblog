@@ -1,0 +1,8 @@
+{
+  "extends": ["@funblog/tsconfig/react-library.config.json"],
+  "compilerOptions": {
+    "declarationDir": "./types"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "global.d.ts"],
+  "exclude": ["node_modules", "./types"]
+}

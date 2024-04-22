@@ -1,0 +1,63 @@
+services:
+  admin:
+    build: ./apps/admin
+    container_name: funblog_admin
+    env_file:
+      - .env.default
+    environment:
+      SERVER_URL: http://server:${SERVER_PORT}
+    ports:
+      - '${ADMIN_PORT}:${ADMIN_PORT}'
+    depends_on:
+      server:
+        condition: service_healthy
+  client:
+    build: ./apps/client
+    container_name: funblog_client
+    env_file:
+      - .env.default
+    environment:
+      SERVER_URL: http://server:${SERVER_PORT}
+    ports:
+      - '${CLIENT_PORT}:${CLIENT_PORT}'
+    depends_on:
+      server:
+        condition: service_healthy
+  server:
+    build: ./apps/server
+    container_name: funblog_server
+    env_file:
+      - .env.default
+    restart: unless-stopped
+    environment:
+      LOG_PATH: ${LOG_PATH:-${PWD}/logs}
+      PUBLIC_PATH: ${PUBLIC_PATH:-${PWD}/public}
+      MYSQL_DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@funblog_db:3306/${MYSQL_DATABASE}
+    ports:
+      - '${SERVER_PORT}:${SERVER_PORT}'
+    volumes:
+      - ${PWD}/data/blog/logs:${LOG_PATH:-${PWD}/logs}
+      - ${PWD}/data/blog/public:${PUBLIC_PATH:-${PWD}/public}
+    healthcheck:
+      test: curl --fail http://127.0.0.1:${SERVER_PORT}/api/health-check || exit 1
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mysql:8.3
+    container_name: funblog_db
+    env_file:
+      - .env.default
+    restart: always
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ${PWD}/data/blog/db-data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 10

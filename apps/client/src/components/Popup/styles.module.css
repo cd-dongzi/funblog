@@ -1,0 +1,37 @@
+.content {
+  opacity: 0;
+}
+.arrow,
+.arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  z-index: -1;
+}
+
+.arrow {
+  visibility: hidden;
+}
+
+.arrow::before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+.popup[data-popper-placement^='top'] .arrow {
+  bottom: -4px;
+}
+
+.popup[data-popper-placement^='bottom'] .arrow {
+  top: -4px;
+}
+
+.popup[data-popper-placement^='left'] .arrow {
+  right: -4px;
+}
+
+.popup[data-popper-placement^='right'] .arrow {
+  left: -4px;
+}

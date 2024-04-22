@@ -1,0 +1,34 @@
+@import './shadow.css';
+@import './button.css';
+@import './line.css';
+@import './background.css';
+
+@layer components {
+  .wes {
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .wes-2 {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+  }
+  .inline-middle > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .btn-clear {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .input-clear {
+    border: none;
+    background: none;
+    outline: none;
+  }
+}

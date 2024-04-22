@@ -1,0 +1,12 @@
+model Visitor {
+  id        Int      @id @default(autoincrement())
+  ip        String   @unique @db.VarChar(64)
+  userAgent String?  @db.Text
+  country   String?
+  province  String?
+  city      String?
+  isp       String?
+  system    Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

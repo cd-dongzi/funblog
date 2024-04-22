@@ -1,0 +1,12 @@
+.item {
+  &.hide {
+    .time {
+      &:hover {
+        transform: translateX(0) !important;
+      }
+    }
+    .reply {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "cache": false,
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "build:preview": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "prisma:studio": {},
+    "prisma:init": {},
+    "prisma:migrate": {},
+    "prisma:deploy": {},
+    "prisma:update": {},
+    "lint": {},
+    "start": {},
+    "replace:workspace": {
+      "cache": false,
+      "persistent": true
+    },
+    "start:pm2": {
+      "cache": false,
+      "persistent": true
+    },
+    "stop:pm2": {
+      "cache": false,
+      "persistent": true
+    },
+    "delete:pm2": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

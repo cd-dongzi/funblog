@@ -1,0 +1,26 @@
+{
+  "name": "@funblog/constants",
+  "version": "2.0.9",
+  "description": "@funblog constants",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "types/index.d.ts",
+  "keywords": [
+    "constants"
+  ],
+  "author": "wintermelon",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development funblog lib dev",
+    "build": "NODE_ENV=production funblog lib build"
+  },
+  "dependencies": {
+    "@funblog/cli": "workspace:*",
+    "@funblog/eslint-config": "workspace:*",
+    "@funblog/tsconfig": "workspace:*",
+    "@funblog/types": "workspace:*"
+  },
+  "devDependencies": {
+    "tslib": "^2.6.2"
+  }
+}

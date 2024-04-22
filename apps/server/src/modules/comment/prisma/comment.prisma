@@ -1,0 +1,31 @@
+import { User } from "../../user/prisma/user"
+import { Comment } from "../../comment/prisma/comment"
+import { Post } from "../../post/prisma/post"
+import { Page } from "../../page/prisma/page"
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  path      String
+  content   String   @db.Text
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+
+  type          String?
+  userId        Int
+  user          User    @relation(fields: [userId], references: [id], name: "commentUser")
+  replierUserId Int?
+  replierUser   User?   @relation(fields: [replierUserId], references: [id], name: "commentReplierUser")
+
+  parentId Int?
+  parent   Comment?  @relation("comments", fields: [parentId], references: [id])
+  children Comment[] @relation("comments")
+
+  // 文章
+  postId Int?
+  post   Post? @relation(fields: [postId], references: [id])
+
+  // 页面
+  pageId Int?
+  page   Page? @relation(fields: [pageId], references: [id])
+}
+

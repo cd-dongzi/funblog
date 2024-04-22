@@ -1,0 +1,8 @@
+import { Post } from "../../post/prisma/post"
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  alias String @unique
+  posts Post[]
+}

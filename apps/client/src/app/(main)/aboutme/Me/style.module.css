@@ -1,0 +1,11 @@
+
+.snippet {
+  font-size: 14px;
+  line-height: 1.5;
+
+  &::first-letter {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 4px;
+  }
+}

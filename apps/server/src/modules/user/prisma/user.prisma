@@ -1,0 +1,77 @@
+import { Role } from "../../role/prisma/role"
+import { Image } from "../../image/prisma/image"
+import { Post } from "../../post/prisma/post"
+import { Comment } from "../../comment/prisma/comment"
+import { Page } from "../../page/prisma/page"
+import { InvitationCode } from "../../invitationCode/prisma/invitationCode"
+
+model User {
+  id              Int        @id @default(autoincrement())
+  username        String     @unique @db.VarChar(32)
+  email           String?    @unique
+  password        String?    @db.VarChar(255)
+  ip              String?    @db.VarChar(64)
+  userAgent       String?    @db.Text
+  phone           String?    @db.VarChar(20)
+  avatar          String?
+  url             String?
+  admin           Int?       @default(0)
+  // 性别 1=>男 2=>女 3=>未知
+  sex             Int?       @default(3)
+  // 状态 1=>正常 2=>停用
+  status          Int        @default(1)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  images          Image[]
+  posts           Post[]
+  comments        Comment[]  @relation("commentUser") // 用户作为评论人的评论
+  repliedComments Comment[]  @relation("commentReplierUser") // 用户作为回复人的评论
+  userRoles       UserRole[]
+  userLikes       UserLike[]
+  userReads       UserRead[]
+  pages           Page[]
+
+  createInvitationCodes InvitationCode[] @relation("createInvitationCodes")
+  invitationCode        InvitationCode?  @relation("registerInvitationCode", fields: [invitationCodeId], references: [code])
+  invitationCodeId      String?
+}
+
+model UserRole {
+  id Int @id @default(autoincrement())
+
+  roleId Int?
+  role   Role? @relation(fields: [roleId], references: [id])
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, roleId])
+  @@index([roleId])
+  @@index([userId])
+}
+
+model UserLike {
+  id        Int      @id @default(autoincrement())
+  ip        String
+  createdAt DateTime @default(now())
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  page      Page?    @relation(fields: [pageId], references: [id])
+  pageId    Int?
+}
+
+model UserRead {
+  id        Int      @id @default(autoincrement())
+  ip        String
+  createdAt DateTime @default(now())
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  page      Page?    @relation(fields: [pageId], references: [id])
+  pageId    Int?
+}

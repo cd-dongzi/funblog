@@ -1,0 +1,129 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master, 'develop']
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'opts/**'
+      - 'scripts/**'
+      - '.github/workflows/deploy.yml'
+
+env:
+  DOCKER_PREFIX: funblog
+
+jobs:
+  build-server:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: server
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update Version
+        run: |
+          node scripts/replaceWorkspace.js
+
+      - name: Get Image Version
+        id: image_version
+        run: echo "IMAGE_VERSION=${{ env.DOCKER_PREFIX }}-${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
+    
+      - name: Output
+        run: |
+           echo "${{ env.IMAGE_VERSION }}"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./apps/${{ env.PROJECT_NAME }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: '${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_VERSION }}'
+          
+  build-client:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: client
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update Version
+        run: |
+          node scripts/replaceWorkspace.js
+
+      - name: Get Image Version
+        id: image_version
+        run: echo "IMAGE_VERSION=${{ env.DOCKER_PREFIX }}-${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
+    
+      - name: Output
+        run: |
+           echo "${{ env.IMAGE_VERSION }}"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./apps/${{ env.PROJECT_NAME }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: '${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_VERSION }}'
+    
+  build-admin:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: admin
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update Version
+        run: |
+          node scripts/replaceWorkspace.js
+
+      - name: Get Image Version
+        id: image_version
+        run: echo "IMAGE_VERSION=${{ env.DOCKER_PREFIX }}-${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
+          
+      - name: Output
+        run: |
+           echo "${{ env.IMAGE_VERSION }}"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./apps/${{ env.PROJECT_NAME }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: '${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_VERSION }}'

@@ -1,0 +1,18 @@
+@layer utilities {
+  .background-card {
+    background: linear-gradient(#f4f7fa calc(100% - 1.5em), #e6ecf4);
+  }
+  .background-to-primary {
+    background: linear-gradient(90deg, theme(colors.primary-light-1), theme(colors.primary));
+  }
+  .background-to-primary-light {
+    background: linear-gradient(90deg, theme(colors.primary), theme(colors.primary-light-1));
+  }
+  .background-to-gray {
+    background: linear-gradient(90deg, theme(colors.gray7), theme(colors.gray6), theme(colors.gray7));
+  }
+
+  .background-input {
+    background: linear-gradient(#f0f2f7, theme(colors.white));
+  }
+}

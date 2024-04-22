@@ -1,0 +1,10 @@
+.tooltip {
+  padding: 8px 10px;
+  border-radius: 8px;
+  min-height: 16px;
+  line-height: 16px;
+  max-width: 244px;
+  font-size: 14px;
+  background-color: theme(colors.white);
+  color: theme(colors.text);
+}

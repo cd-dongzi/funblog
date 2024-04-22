@@ -1,0 +1,93 @@
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:
+    transform 0.7s,
+    z-index 0.7s,
+    opacity 0.7s;
+}
+.current {
+  z-index: 5;
+  transform: translateZ(2em);
+  transition:
+    transform cubic-bezier(0.48, 0, 0.3, 1) 0.7s,
+    z-index 0.7s !important;
+}
+.after0 {
+  z-index: 4;
+  transform:translate(var(--x)) perspective(30em) rotateY(-50deg) scale(0.75);
+}
+.after1 {
+  z-index: 3;
+  transform:translate(var(--x1)) perspective(30em) rotateY(-50deg) scale(0.65);
+  opacity: 0.35;
+}
+.after2 {
+  z-index: 2;
+  transform:translate(var(--x2)) perspective(30em) rotateY(-50deg) scale(0.55);
+  opacity: 0;
+}
+.before0 {
+  z-index: 4;
+  transform:translate(calc(-1*var(--x))) perspective(30em) rotateY(50deg) scale(0.75);
+}
+.before1 {
+  z-index: 3;
+  transform:translate(calc(-1*var(--x1))) perspective(30em) rotateY(50deg) scale(0.65);
+  opacity: 0.35;
+}
+.before2 {
+  z-index: 2;
+  transform:translate(calc(-1*var(--x2))) perspective(30em) rotateY(50deg) scale(0.55);
+  opacity: 0;
+}
+
+/* button */
+.button {
+  opacity: 0;
+  padding: 0;
+  color: theme(colors.white);
+  top: 50%;
+  position: absolute;
+  background: transparent;
+  border: none;
+  display: grid;
+  align-items: center;
+  width: 6em;
+  height: 6em;
+  transition: 0.5s;
+  z-index: 2;
+}
+.button::before {
+  content: '';
+  background: theme(colors.black/0.5);
+  display: block;
+  border-radius: 1.2em 0;
+  position: absolute;
+  z-index: -1;
+  width: 4em;
+  height: 4em;
+}
+.button.prev {
+  left: 0;
+  padding-left: 0.3em;
+  transform: translate(-50%, -50%);
+}
+.button.prev svg {
+  transform: rotate(180deg);
+}
+.button.prev::before {
+  transform: translate(calc(-50%)) rotate(-45deg);
+}
+
+.button.next {
+  right: 0;
+  overflow: hidden;
+  justify-content: end;
+  padding-right: 0.3em;
+  transform: translate(50%, -50%);
+}
+.button.next::before {
+  transform: translate(calc(50% + 2em)) rotate(-45deg);
+}

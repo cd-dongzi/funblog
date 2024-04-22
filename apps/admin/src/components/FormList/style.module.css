@@ -1,0 +1,7 @@
+.proList {
+  :global {
+    .ant-pro-table-alert {
+      display: none;
+    }
+  }
+}

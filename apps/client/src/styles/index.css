@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import './base/index.css';
+
+@import 'tailwindcss/components';
+@import './components/index.css';
+
+@import 'tailwindcss/utilities';
+@import './utilities/index.css';
+
+@import '@funblog/components/lib/cjs/index.css';
+@import './markdown/index.css';
+
+@import './reset.css';
+
+html.scroll {
+  scroll-padding-top: theme(spacing.headerH);
+  scroll-behavior: smooth;
+}
+body {
+  background-color: theme(colors.gray9);
+  min-height: 100vh;
+  min-width: 320px;
+}
+body.disabled-scroll {
+  overflow: hidden;
+}
+
+.page {
+  @apply transition-all-3 mx-auto max-w-screen-xxxl pc:pt-5 pc:px-paddingPage;
+}
+
+.page-main {
+  @apply w-full mx-auto mt-5 bg-white relative pt-9;
+  @apply pc:pt-12 pc:pb-5 pc:rounded-xl pc:[box-shadow:0_13px_15px_theme(colors.gray/0.1)];
+  @apply mobile:pt-9 mobile:pb-12 mobile:rounded-none mobile:mt-0;
+}

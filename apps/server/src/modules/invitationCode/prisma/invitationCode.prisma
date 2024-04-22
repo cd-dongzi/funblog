@@ -1,0 +1,19 @@
+import { Role } from "../../role/prisma/role"
+import { User } from "../../user/prisma/user"
+
+model InvitationCode {
+  id        Int      @id @default(autoincrement())
+  // 标识
+  code      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  expiredAt DateTime
+  roles     Role[]
+
+  user   User @relation("createInvitationCodes", fields: [userId], references: [id])
+  userId Int
+
+  registerUsers User[] @relation("registerInvitationCode")
+}
+
+

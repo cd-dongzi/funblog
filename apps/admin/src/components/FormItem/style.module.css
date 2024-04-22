@@ -1,0 +1,11 @@
+.item {
+  width: 100% !important;
+}
+
+.proList {
+  :global {
+    .ant-pro-table-alert {
+      display: none;
+    }
+  }
+}

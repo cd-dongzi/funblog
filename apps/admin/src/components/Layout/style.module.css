@@ -1,0 +1,30 @@
+.page {
+  :global {
+    .ant-page-header-breadcrumb {
+      padding-top: 0 !important;
+    }
+    .ant-page-header-no-children {
+      display: none;
+    }
+    .ant-page-header {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .ant-pro-page-container-children-container {
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &.full {
+    :global {
+      .ant-page-header {
+        display: none;
+      }
+      .ant-pro-page-container-children-container {
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "extends": ["@funblog/eslint-config/common-ts"],
+  "rules": {
+    "no-use-before-define": "off"
+  },
+  "ignorePatterns": ["index.js"]
+}

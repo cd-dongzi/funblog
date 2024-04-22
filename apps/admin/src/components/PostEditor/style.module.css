@@ -1,0 +1,15 @@
+.container {
+  .box {
+    border-right: 1px solid #e1e4e8;
+  }
+  :global {
+    .bytemd {
+      height: calc(100vh - 60px);
+      border: 1px solid #e1e4e8;
+      border-right: 0px solid transparent;
+    }
+    .bytemd-fullscreen {
+      z-index: 999;
+    }
+  }
+}

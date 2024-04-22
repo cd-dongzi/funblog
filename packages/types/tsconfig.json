@@ -1,0 +1,8 @@
+{
+  "extends": ["@funblog/tsconfig/library.config.json"],
+  "compilerOptions": {
+    "declarationDir": "./types",
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "./types"]
+}

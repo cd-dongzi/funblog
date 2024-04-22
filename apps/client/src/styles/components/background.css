@@ -1,0 +1,49 @@
+@layer compopnents {
+  .background-shining {
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      135deg,
+      hsla(0, 0%, 100%, 0) 10%,
+      hsla(0, 0%, 100%, 0.5) 18%,
+      hsla(0, 0%, 100%, 0) 18%,
+      hsla(0, 0%, 100%, 0) 19.5%,
+      #fff 19.5%,
+      #fff 20%,
+      hsla(0, 0%, 100%, 0) 20%,
+      hsla(0, 0%, 100%, 0) 55%,
+      hsla(0, 0%, 100%, 0.2) 55%,
+      hsla(0, 0%, 100%, 0.5) 60%,
+      hsla(0, 0%, 100%, 0) 60%,
+      hsla(0, 0%, 100%, 0.3) 80%,
+      hsla(0, 0%, 100%, 0) 80%
+    );
+    background-size: 20em 100%;
+    background-position: -20em 0;
+    animation: background_shining 4s linear infinite;
+  }
+
+  @keyframes background_shining {
+    0% {
+      background-position: -20em 0;
+      border-color: #fff3;
+      animation-timing-function: ease-in;
+    }
+    40% {
+      background-position: 0em 0;
+      border-color: #ffffff80;
+    }
+    80% {
+      background-position: 21em 0;
+      border-color: #fff3;
+      animation-timing-function: ease-out;
+    }
+    100% {
+      background-position: 21em 0;
+    }
+  }
+  .bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}

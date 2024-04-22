@@ -1,0 +1,10 @@
+{
+  "extends": ["@funblog/tsconfig/server.config.json"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "jsx": "react"
+  },
+  "exclude": ["node_modules", "dist"]
+}

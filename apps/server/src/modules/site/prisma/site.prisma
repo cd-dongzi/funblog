@@ -1,0 +1,26 @@
+model SiteConfig {
+  id     Int    @id @default(autoincrement())
+  type   String @unique
+  config Json
+}
+
+// model SiteMeta {
+//   id          Int      @id @default(autoincrement())
+//   title       String
+//   keywords    String   @db.VarChar(255)
+//   description String   @db.VarChar(255)
+//   favicon     String   @db.VarChar(255)
+//   logo        String   @db.VarChar(255)
+//   footerLinks Json
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+// }
+
+// model SiteImage {
+//   id              Int     @id @default(autoincrement())
+//   enableWebp      Boolean @default(true)
+//   webpThreshold   Int
+//   enableThumbnail Boolean @default(true)
+//   thumbnailWidth  Int
+//   storageStrategy String
+// }

@@ -1,0 +1,184 @@
+.catalog {
+  --c-arrow-w: 17px;
+  --c-parent-h: 34px;
+  --c-gap: 20px;
+  padding: 8px;
+
+  ul {
+    padding: 0.1px 0 20px;
+    margin-left: 5px;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 6px;
+      background: linear-gradient(90deg, theme(colors.white) 1px, theme(colors.gray7));
+      border: 1px solid theme(colors.gray6);
+      box-shadow: 0.5px 3px 5px theme(colors.gray/0.1);
+      border-radius: 4px;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.15s;
+
+    .text {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+    }
+  }
+
+  .parent {
+    .wrapper {
+      position: relative;
+      margin: 20px 0 5px -5px;
+      filter: drop-shadow(0 1px 0 theme(colors.gray/0.2)) drop-shadow(0 -1px 0 theme(colors.white))
+        drop-shadow(5px 6px 5px theme(colors.gray/0.1));
+      color: theme(colors.gray4);
+
+      &::before {
+        content: '';
+        border: 3px solid theme(colors.gray/0.2);
+        position: absolute;
+        left: 0;
+        top: -7px;
+        border-left: 3px solid transparent;
+        border-top: 3px solid transparent;
+        transform-origin: bottom;
+        transform: scaleY(0.8);
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        border: var(--c-arrow-w) solid theme(colors.gray7);
+        border-left-width: 8px;
+        border-right: 8px solid transparent;
+        border-bottom: var(--c-arrow-w) solid transparent;
+        vertical-align: bottom;
+      }
+
+      .text {
+        max-width: calc(100% - var(--c-arrow-w));
+        font-weight: 700;
+        background: linear-gradient(90deg, theme(colors.white), theme(colors.gray9) 6px, theme(colors.gray7));
+        line-height: var(--c-parent-h);
+        padding: 0 12px 0 20px;
+        border-bottom-left-radius: 5px;
+        vertical-align: bottom;
+        text-shadow: 0 1px theme(colors.white);
+        transition: 0.25s;
+      }
+    }
+
+    &.active {
+      .wrapper {
+        filter: drop-shadow(0 1px 0 theme(colors.primary-dark-1)) drop-shadow(6px 7px 8px theme(colors.primary/0.4));
+
+        &::before {
+          border-bottom: 3px solid theme(colors.secondary-dark-1);
+          border-right: 3px solid theme(colors.secondary-dark-1);
+        }
+
+        &::after {
+          border-top: var(--c-arrow-w) solid theme(colors.primary-dark-1);
+          border-left: 8px solid theme(colors.primary-dark-1);
+        }
+
+        .text {
+          color: theme(colors.white);
+          background: linear-gradient(
+            90deg,
+            theme(colors.secondary-light-2),
+            theme(colors.secondary) 6px,
+            theme(colors.primary-dark-1)
+          );
+          text-shadow: 0 -1px theme(colors.primary-dark-2);
+          box-shadow: none;
+        }
+      }
+    }
+
+    &:not(.active) {
+      .wrapper:hover {
+        color: theme(colors.primary);
+      }
+    }
+  }
+
+  .sub {
+    text-shadow: 0 1px theme(colors.white);
+    margin: 5px 0;
+
+    .wrapper {
+      padding: 10px 0 10px 0;
+      position: relative;
+      color: theme(colors.gray2);
+      transition: 0.3s;
+
+      &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        border: 1px solid theme(colors.gray6);
+        background: theme(colors.white);
+        left: 0;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: 0.3s;
+      }
+
+      .text {
+        max-width: 100%;
+      }
+    }
+
+    &.active {
+      .wrapper {
+        color: theme(colors.primary);
+        font-weight: 700;
+
+        &::before {
+          content: '';
+          width: var(--c-arrow-w);
+          height: 10px;
+          border-radius: 4px 100% 100% 4px / 4px 80% 80% 4px;
+          border-color: theme(colors.primary);
+          background: theme(colors.primary-light-1);
+          box-shadow:
+            0 1px theme(colors.secondary-light-2) inset,
+            0 2px 3px theme(colors.primary/0.3);
+          left: -3px;
+          top: 50%;
+          transform: translate(0, -50%);
+          transition: 0.3s linear 0.3s;
+          box-sizing: border-box;
+        }
+
+        .text {
+          font-weight: 700;
+        }
+      }
+    }
+
+    &:not(.active) {
+      .wrapper:hover {
+        color: theme(colors.primary);
+      }
+    }
+  }
+}

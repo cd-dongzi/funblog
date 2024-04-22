@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import './base.css';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+@import './utilities.css';
+
+@import '@funblog/components/lib/cjs/index.css';
+@import './markdown/index.css';
+@import './reset.css';
+
+body {
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}

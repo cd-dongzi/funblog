@@ -1,0 +1,32 @@
+.menu {
+  :global {
+    .ant-collapse-content-box {
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+    .ant-form-item  {
+      margin-bottom: 12px;
+    }
+    .ant-form-item-label {
+      label {
+        color: #475669;
+      }
+    }
+    .ant-list-item {
+      border: none;
+      padding: 2px 0;
+    }
+    .ant-list-item-meta-title {
+      color: #475669!important;
+      font-weight: normal;
+    }
+  }
+}
+
+.content {
+  :global {
+    .ant-collapse-content {
+      border-top: 1px solid theme(colors.gray7)!important;
+    }
+  }
+}

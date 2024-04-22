@@ -1,0 +1,15 @@
+import { User } from "../../user/prisma/user"
+
+model Image {
+  id           Int      @id @default(autoincrement())
+  originalname String
+  filename     String
+  originalUrl  String
+  url          String
+  thumbnailUrl String?
+  metadata     Json
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+

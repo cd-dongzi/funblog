@@ -1,0 +1,30 @@
+{
+  "name": "@funblog/utils",
+  "version": "2.0.7",
+  "description": "@funblog utils",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "types/index.d.ts",
+  "keywords": [
+    "utils"
+  ],
+  "author": "wintermelon",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development funblog lib dev",
+    "build": "NODE_ENV=production funblog lib build"
+  },
+  "dependencies": {
+    "@funblog/cli": "workspace:*",
+    "@funblog/eslint-config": "workspace:*",
+    "@funblog/tsconfig": "workspace:*",
+    "dayjs": "^1.11.10",
+    "highlight.js": "^11.9.0",
+    "markdown-it": "14.0.0",
+    "xss": "1.0.14"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "tslib": "^2.6.2"
+  }
+}

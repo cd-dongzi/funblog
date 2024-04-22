@@ -1,0 +1,14 @@
+@layer components {
+  .shadow-text-banner {
+    /* font-family: theme(fontFamily.pmzd); */
+    font-style: italic;
+    text-shadow: theme(colors.white/0.6);
+    mask: linear-gradient(theme(colors.black) 20%, theme(colors.black/0.6) 70%) 0 0/100% 1.3em;
+  }
+
+
+  .shadow-text {
+    text-shadow: -1px -1px theme(colors.white/0.5), 2px 2px 2px theme(colors.gray/0.3);
+    color: theme(colors.text);
+  }
+}

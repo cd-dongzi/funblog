@@ -1,0 +1,8 @@
+model Svg {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  content   String   @db.LongText
+  scope     Json?
+  desc      String?
+  createdAt DateTime @default(now())
+}

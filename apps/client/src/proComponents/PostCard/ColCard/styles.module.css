@@ -1,0 +1,30 @@
+.card {
+  &:hover {
+    transform: translateY(1em);
+    box-shadow: 0 0.2em 0.4em theme(colors.gray/0.1);
+    .cover {
+      transform: translateY(1em);
+      .coverBg {
+        opacity: 0;
+      }
+      .date {
+        opacity: 1;
+      }
+    }
+    .title {
+      transform: translateY(0.5em);
+    }
+    .meta {
+      transform: translateY(0.8em) scale(0.8);
+      opacity: 0;
+    }
+    .tags {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+    .button {
+      transform: translateY(0.3em);
+    }
+  }
+}

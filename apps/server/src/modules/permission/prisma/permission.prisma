@@ -1,0 +1,12 @@
+import { RolePermission } from "../../role/prisma/role"
+
+model Permission {
+  id             Int              @id @default(autoincrement())
+  // 名称
+  name           String           @db.VarChar(255)
+  // 标识
+  code           String?          @unique @db.VarChar(255)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  rolePermissions RolePermission[]
+}

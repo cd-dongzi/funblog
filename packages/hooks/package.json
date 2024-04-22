@@ -1,0 +1,29 @@
+{
+  "name": "@funblog/hooks",
+  "version": "2.0.7",
+  "description": "@funblog hooks",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "types/index.d.ts",
+  "keywords": [
+    "hooks"
+  ],
+  "author": "wintermelon",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development funblog lib dev",
+    "build": "NODE_ENV=production funblog lib build"
+  },
+  "dependencies": {
+    "@funblog/utils": "workspace:*",
+    "react": "^18"
+  },
+  "devDependencies": {
+    "@funblog/cli": "workspace:*",
+    "@funblog/eslint-config": "workspace:*",
+    "@funblog/tsconfig": "workspace:*",
+    "@funblog/utils": "workspace:*",
+    "@types/react": "^18",
+    "tslib": "^2.6.2"
+  }
+}

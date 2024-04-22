@@ -1,0 +1,1 @@
+var p,a;!function(p){p.APPROVED="approved",p.PENDING="pending",p.SPAM="spam"}(p||(p={})),function(p){p.POST="post",p.PAGE="page",p.MESSAGE_BOARD="message_board"}(a||(a={}));export{p as CommentStatus,a as CommentType};

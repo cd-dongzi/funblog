@@ -1,0 +1,75 @@
+services:
+  admin:
+    image: ${ADMIN_IMAGE}
+    container_name: funblog_admin
+    env_file:
+      - path: .env.default
+        required: false
+      - path: .env.prod
+        required: false
+    environment:
+      SERVER_URL: http://server:${SERVER_PORT}
+    ports:
+      - '${ADMIN_PORT}:${ADMIN_PORT}'
+    # depends_on:
+    #   server:
+    #     condition: service_healthy
+  client:
+    image: ${CLIENT_IMAGE}
+    container_name: funblog_client
+    env_file:
+      - path: .env.default
+        required: false
+      - path: .env.prod
+        required: false
+    environment:
+      SERVER_URL: http://server:${SERVER_PORT}
+    ports:
+      - '${CLIENT_PORT}:${CLIENT_PORT}'
+    # depends_on:
+    #   server:
+    #     condition: service_healthy
+  server:
+    image: ${SERVER_IMAGE}
+    container_name: funblog_server
+    env_file:
+      - path: .env.default
+        required: false
+      - path: .env.prod
+        required: false
+    restart: unless-stopped
+    environment:
+      LOG_PATH: ${LOG_PATH:-${PWD}/logs}
+      PUBLIC_PATH: ${PUBLIC_PATH:-${PWD}/public}
+      MYSQL_DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@funblog_db:3306/${MYSQL_DATABASE}
+    ports:
+      - '${SERVER_PORT}:${SERVER_PORT}'
+    volumes:
+      - ${PWD}/data/logs:${LOG_PATH:-${PWD}/logs}
+      - ${PWD}/data/public:${PUBLIC_PATH:-${PWD}/public}
+    # healthcheck:
+    #   test: curl --fail http://127.0.0.1:${SERVER_PORT}/api/health-check || exit 1
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 10
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
+  db:
+    image: mysql:latest
+    container_name: funblog_db
+    env_file:
+      - path: .env.default
+        required: false
+      - path: .env.prod
+        required: false
+    restart: always
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ${PWD}/data/db-data:/var/lib/mysql
+    # healthcheck:
+    #   test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 10

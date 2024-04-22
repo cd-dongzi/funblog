@@ -1,0 +1,38 @@
+import { User, UserRole } from "../../user/prisma/user"
+import { Permission } from "../../permission/prisma/permission"
+import { InvitationCode } from "../../invitationCode/prisma/invitationCode"
+
+model RolePermission {
+  id           Int         @id @default(autoincrement())
+  role         Role?       @relation(fields: [roleId], references: [id])
+  roleId       Int?
+  permissionId Int?
+  permission   Permission? @relation(fields: [permissionId], references: [id])
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+
+  @@unique([permissionId, roleId])
+  @@index([roleId])
+  @@index([permissionId])
+}
+
+model Role {
+  id        Int       @id @default(autoincrement())
+  // 名称
+  name      String    @db.VarChar(255)
+  // 类型
+  code      String    @unique @db.VarChar(255)
+  // 创建时间
+  createdAt DateTime? @default(now())
+  // 编辑时间
+  updatedAt DateTime? @updatedAt
+
+  rolePermissions RolePermission[]
+  userRoles       UserRole[]
+  invitationCodes InvitationCode[]
+}
+
+
+
+

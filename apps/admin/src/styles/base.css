@@ -1,0 +1,33 @@
+@layer base {
+  :root {
+    --color-primary: 32, 160, 255; /* #20A0FF */
+    --color-secondary: 32, 186, 255; /* #20BAFF */
+    --color-white: 255, 255, 255; /* #ffffff */
+    --color-black: 0, 0, 0; /* #000000 */
+    --color-gray: 31, 45, 61; /* #1F2D3D */
+    --color-red: 245, 108, 108; /* #F56C6C */
+    --color-green: 103, 194, 58; /* #67C23A */
+  
+    --color-title: #475669;
+    --color-subTitle: #8492a6;
+    --color-text: #738192;
+
+    --color-gray-0: #1F2D3D;
+    --color-gray-1: #324057;
+    --color-gray-2: #475669;
+    --color-gray-3: #8492A6;
+    --color-gray-4: #99A9BF;
+    --color-gray-5: #C0CCDA;
+    --color-gray-6: #D3DCE6;
+    --color-gray-7: #E5E9F2;
+    --color-gray-8: #EFF2F7;
+    --color-gray-9: #F9FAFC;
+
+    --color-divider: #efeff5;
+    --color-border: #e0e0e6;
+  }
+
+  html[data-theme='dark'] {
+    --color-title: #475669;
+  }
+}

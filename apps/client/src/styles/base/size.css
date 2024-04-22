@@ -1,0 +1,10 @@
+@layer base {
+  :root {
+    --padding-page: theme(spacing.4);
+  }
+  @media screen(lg) {
+    :root {
+      --padding-page: theme(spacing.10);
+    }
+  }
+}

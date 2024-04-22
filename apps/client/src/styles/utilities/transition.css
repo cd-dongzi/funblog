@@ -1,0 +1,11 @@
+@layer utilities {
+  .transition-all-5 {
+    transition: all 0.5s;
+  }
+  .transition-all-3 {
+    transition: all 0.3s;
+  }
+  .transition-color-3 {
+    transition: color 0.3s;
+  }
+}

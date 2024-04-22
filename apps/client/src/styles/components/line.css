@@ -1,0 +1,5 @@
+@layer components {
+  .line-tick {
+    @apply absolute bottom-[-2px] left-0 h-[3px] w-full rounded-full bg-primary;
+  }
+}

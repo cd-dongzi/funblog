@@ -1,0 +1,19 @@
+body .emojiTooltip {
+  width: 300px;
+  height: 360px;
+  padding: 0;
+  background-color: theme(colors.white);
+  color: theme(colors.text);
+  pointer-events: auto;
+  opacity: 1;
+  box-shadow:
+    0 0 0 1px theme(colors.white) inset,
+    0 0 1px theme(colors.gray/0.1),
+    0 8px 20px theme(colors.gray/0.25);
+}
+
+
+.scroll {
+  scroll-padding-top: 0.5em;
+  scroll-behavior: smooth;
+}

@@ -1,7 +1,0 @@
-[defaults]
-url = https://sentry.io/
-org = 43c0f049ed40
-project = react-ssr-blog
-
-[auth]
-token = 4473913ac7264adfb43fcd0306d508ec70f91cae02e1427dbcb2a44b230131d6

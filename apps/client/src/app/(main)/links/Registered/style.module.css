@@ -1,0 +1,46 @@
+.box {
+  section {
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-weight: 400;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  blockquote {
+    border-left: 4px solid theme(colors.primary);
+    background: #f0f2f7;
+    color: #555;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  p {
+    margin-top: 15px;
+  }
+
+  .apply {
+    border-bottom: 1px solid theme(colors.primary/0.4);
+    padding-bottom: 1px;
+    color: theme(colors.primary);
+    transition: color 0.25s;
+
+    &:hover {
+      color: theme(colors.primary/0.8);
+    }
+  }
+
+  .ol {
+    margin-left: 20px;
+  }
+
+  ol {
+    li {
+      margin: 5px 0;
+      line-height: 1.5em;
+    }
+  }
+}

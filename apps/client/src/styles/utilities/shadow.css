@@ -1,0 +1,48 @@
+@layer utilities {
+  .shadow-black {
+    box-shadow: 0 13px 15px theme(colors.black/0.1);
+  }
+  .shadow-primary {
+    box-shadow: 0 13px 15px theme(colors.primary/0.4);
+  }
+  .shadow-primary-md {
+    box-shadow: 0 8px 10px theme(colors.primary/0.3);
+  }
+  .shadow-primary-sm {
+    box-shadow: 0 2px 4px theme(colors.primary/0.3);
+  }
+  .shadow-gray {
+    box-shadow: 0 13px 15px theme(colors.gray/0.25);
+  }
+  .shadow-gray-shallow {
+    box-shadow: 0 2px 4px theme(colors.gray/0.25);
+  }
+
+  .shadow-banner {
+    box-shadow:
+      0 0 0 1px theme(colors.white/0.8) inset,
+      0 1px theme(colors.white) inset,
+      0 0.75em 1em theme(colors.gray/0.15);
+  }
+  .shadow-banner-card {
+    box-shadow: 0 10px 20px theme(colors.black/0.3), 0 0 0 1px theme(colors.white/0.2) inset, 0 0 0 1px theme(colors.black/0.15), 0 0 0 8em theme(colors.black/0) inset;
+  }
+  .shadow-header-line {
+    box-shadow:
+      0 1px theme(colors.gray7),
+      0 0 transparent,
+      0 2px theme(colors.white);
+  }
+  .shadow-header {
+    box-shadow: 0 5px 7px theme(colors.gray/0.1);
+  }
+  .shadow-card {
+    box-shadow: 0 1em 1em theme(colors.gray/0.15);
+  }
+  .shadow-card-text {
+    text-shadow: 0 1px theme(colors.white);
+  }
+  .shadow-menu-anchor {
+    box-shadow: 0 6px 6px theme(colors.gray/0.05), 0 10px 10px theme(colors.gray/0.15), 0 -1px 2px theme(colors.white/0.5) inset;
+  }
+}

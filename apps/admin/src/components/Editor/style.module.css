@@ -1,0 +1,10 @@
+.editor {
+  :global {
+    .emoji-container {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      z-index: 999;
+    }
+  }
+}

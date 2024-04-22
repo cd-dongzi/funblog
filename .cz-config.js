@@ -1,10 +1,8 @@
-'use strict'
-
 module.exports = {
   types: [
     {
-      value: 'WIP',
-      name: '💪    WIP:     Work in progress',
+      value: 'wip',
+      name: '💪    wip:     Work in progress',
     },
     {
       value: 'feat',
@@ -51,9 +49,17 @@ module.exports = {
       name: '⏪ revert:     Revert to a commit',
     }
   ],
-  scopes: [],
-
-  allowCustomScopes: true,
+	scopes: [],
+	messages: {
+		type: '选择更改类型:\n',
+		scope: '选择一个 scope（可选）：\n',
+		customScope: '请输入自定义的 scope（可选）：',
+		subject: '简短描述:\n',
+		body: '详细描述. 使用"|"换行（可选）:\n',
+		breaking: 'Breaking Changes列表（可选）:\n',
+		footer: '关闭的issues列表. E.g.: #31, #34（可选）:\n',
+		confirmCommit: '确认提交?'
+	},
+  allowCustomScopes: false,
   allowBreakingChanges: ['feat', 'fix', 'build', 'perf', 'refactor'],
-  footerPrefix: 'Related issues：'
 }
