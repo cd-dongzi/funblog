@@ -1,1 +1,15 @@
-var a,n;!function(a){a.NAVIGATION_NAV="navigation-nav",a.SUB_NAV="sub-nav"}(a||(a={})),function(a){a.URL="url",a.CATEGORY="category",a.ARTICLE="article",a.TAG="tag",a.PAGE="page"}(n||(n={}));export{n as PageMenuButtonType,a as PageMenuType};
+var PageMenuType;
+(function (PageMenuType) {
+  PageMenuType["NAVIGATION_NAV"] = "navigation-nav";
+  PageMenuType["SUB_NAV"] = "sub-nav";
+})(PageMenuType || (PageMenuType = {}));
+var PageMenuButtonType;
+(function (PageMenuButtonType) {
+  PageMenuButtonType["URL"] = "url";
+  PageMenuButtonType["CATEGORY"] = "category";
+  PageMenuButtonType["ARTICLE"] = "article";
+  PageMenuButtonType["TAG"] = "tag";
+  PageMenuButtonType["PAGE"] = "page";
+})(PageMenuButtonType || (PageMenuButtonType = {}));
+
+export { PageMenuButtonType, PageMenuType };

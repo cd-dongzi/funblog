@@ -1,1 +1,15 @@
-"use strict";var e,t;exports.PageMenuType=void 0,(e=exports.PageMenuType||(exports.PageMenuType={})).NAVIGATION_NAV="navigation-nav",e.SUB_NAV="sub-nav",exports.PageMenuButtonType=void 0,(t=exports.PageMenuButtonType||(exports.PageMenuButtonType={})).URL="url",t.CATEGORY="category",t.ARTICLE="article",t.TAG="tag",t.PAGE="page";
+'use strict';
+
+exports.PageMenuType = void 0;
+(function (PageMenuType) {
+  PageMenuType["NAVIGATION_NAV"] = "navigation-nav";
+  PageMenuType["SUB_NAV"] = "sub-nav";
+})(exports.PageMenuType || (exports.PageMenuType = {}));
+exports.PageMenuButtonType = void 0;
+(function (PageMenuButtonType) {
+  PageMenuButtonType["URL"] = "url";
+  PageMenuButtonType["CATEGORY"] = "category";
+  PageMenuButtonType["ARTICLE"] = "article";
+  PageMenuButtonType["TAG"] = "tag";
+  PageMenuButtonType["PAGE"] = "page";
+})(exports.PageMenuButtonType || (exports.PageMenuButtonType = {}));

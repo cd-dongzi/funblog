@@ -1,1 +1,14 @@
-var p,a;!function(p){p.APPROVED="approved",p.PENDING="pending",p.SPAM="spam"}(p||(p={})),function(p){p.POST="post",p.PAGE="page",p.MESSAGE_BOARD="message_board"}(a||(a={}));export{p as CommentStatus,a as CommentType};
+var CommentStatus;
+(function (CommentStatus) {
+  CommentStatus["APPROVED"] = "approved";
+  CommentStatus["PENDING"] = "pending";
+  CommentStatus["SPAM"] = "spam";
+})(CommentStatus || (CommentStatus = {}));
+var CommentType;
+(function (CommentType) {
+  CommentType["POST"] = "post";
+  CommentType["PAGE"] = "page";
+  CommentType["MESSAGE_BOARD"] = "message_board";
+})(CommentType || (CommentType = {}));
+
+export { CommentStatus, CommentType };

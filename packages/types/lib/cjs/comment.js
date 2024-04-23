@@ -1,1 +1,14 @@
-"use strict";var e,t;exports.CommentStatus=void 0,(e=exports.CommentStatus||(exports.CommentStatus={})).APPROVED="approved",e.PENDING="pending",e.SPAM="spam",exports.CommentType=void 0,(t=exports.CommentType||(exports.CommentType={})).POST="post",t.PAGE="page",t.MESSAGE_BOARD="message_board";
+'use strict';
+
+exports.CommentStatus = void 0;
+(function (CommentStatus) {
+  CommentStatus["APPROVED"] = "approved";
+  CommentStatus["PENDING"] = "pending";
+  CommentStatus["SPAM"] = "spam";
+})(exports.CommentStatus || (exports.CommentStatus = {}));
+exports.CommentType = void 0;
+(function (CommentType) {
+  CommentType["POST"] = "post";
+  CommentType["PAGE"] = "page";
+  CommentType["MESSAGE_BOARD"] = "message_board";
+})(exports.CommentType || (exports.CommentType = {}));

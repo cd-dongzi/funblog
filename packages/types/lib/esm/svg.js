@@ -1,1 +1,7 @@
-var n;!function(n){n.CLIENT="client",n.ADMIN="admin"}(n||(n={}));export{n as SvgScope};
+var SvgScope;
+(function (SvgScope) {
+  SvgScope["CLIENT"] = "client";
+  SvgScope["ADMIN"] = "admin";
+})(SvgScope || (SvgScope = {}));
+
+export { SvgScope };
